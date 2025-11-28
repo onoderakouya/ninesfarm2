@@ -850,3 +850,15 @@ textarea:focus {
     flex-direction: column;
   }
 }
+
+/* サイドバーのロゴ画像を丸く表示 */
+.side-logo-img {
+  width: 110px;          /* 大きさはここで調整可能（90〜130pxがベスト） */
+  height: 110px;
+  border-radius: 50%;    /* 丸くする */
+  object-fit: cover;     /* 切り抜いて丸内にフィット */
+  display: block;
+  margin: 0 auto 1rem;   /* 左右中央＋下に余白 */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12); /* ほんのり影、消してもよい */
+}
+
