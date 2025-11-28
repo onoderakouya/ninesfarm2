@@ -491,20 +491,24 @@ h1, h2, h3, h4 {
   padding: 18px 18px 20px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.03);
   font-size: 0.92rem;
+  text-align: center;
+
 }
 
 .voice-photo {
-  width: 70px; 
+  width: 70px;
   height: 70px;
   border-radius: 50%;
   overflow: hidden;
 
-  /* ★ この4行で中央配置が完成 ★ */
-  display: flex;
-  align-items: center;   /* 上下中央 */
-  justify-content: center; /* 左右中央 */
+  /* ✅ ここが超大事：中央寄せ */
+  margin: 0 auto 0.6rem;  /* 左右オート → 中央寄せ */
 
-  margin-bottom: 0.6rem;
+  /* これはあってもなくてもOK（丸の中で中央にしたいなら残す） */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   flex-shrink: 0;
 }
 
