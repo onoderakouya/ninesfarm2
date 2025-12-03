@@ -786,6 +786,7 @@ textarea:focus {
 /* スマホ幅：サイドバーを上部に畳むシンプル仕様 */
 @media (max-width: 768px) {
   .site-header {
+    position: static;  /* ←これを追加 */
     height: auto;
   }
 
