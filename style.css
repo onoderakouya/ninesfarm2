@@ -862,3 +862,62 @@ textarea:focus {
   box-shadow: 0 2px 6px rgba(0,0,0,0.12); /* ほんのり影、消してもよい */
 }
 
+/* =========================
+   代表者（指導員）の声
+========================= */
+
+.section-leader {
+  background-color: #ffffff; /* 他セクションとのバランスで変更OK */
+}
+
+.section-leader .leader-wrapper {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 1.8rem;
+  align-items: flex-start;
+}
+
+.leader-photo {
+  display: flex;
+  justify-content: center;
+}
+
+.leader-photo img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* テキスト部分 */
+.leader-text .leader-title {
+  font-size: 0.9rem;
+  color: #777c6b;
+  margin: 0 0 0.2rem;
+}
+
+.leader-text .leader-name {
+  font-size: 1.2rem;
+  margin: 0 0 0.8rem;
+}
+
+.leader-text p {
+  margin-bottom: 0.8rem;
+}
+
+.leader-message-foot {
+  font-weight: 600;
+  color: #4a5a4a;
+}
+
+/* スマホレイアウト調整 */
+@media (max-width: 800px) {
+  .section-leader .leader-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .leader-photo {
+    margin-bottom: 0.5rem;
+  }
+}
