@@ -515,31 +515,83 @@
             オンラインでの事前相談も可能です。
           </p>
 
-          <form class="contact-form" action="#" method="post">
-            <div class="form-row">
-              <label for="name">お名前<span>（必須）</span></label>
-              <input type="text" id="name" name="name" required>
-            </div>
+<form class="contact-form" id="contactForm"
+      action="https://script.google.com/macros/s/AKfycbzjCjNk1KHjFdiM-0jgp29Z2Q4TWKO5npmxOT9G-ZeuCLe03-mF3NXTtWFXFiELDC8/exec"
+      method="post">
 
-            <div class="form-row">
-              <label for="email">メールアドレス<span>（必須）</span></label>
-              <input type="email" id="email" name="email" required>
-            </div>
+  <!-- スパム対策（人は触らない） -->
+  <div style="position:absolute; left:-9999px; height:0; overflow:hidden;" aria-hidden="true">
+    <label>この欄は空のままにしてください</label>
+    <input type="text" name="company" tabindex="-1" autocomplete="off">
+  </div>
 
-            <div class="form-row">
-              <label for="tel">お電話番号</label>
-              <input type="tel" id="tel" name="tel">
-            </div>
+  <div class="form-row">
+    <label for="name">お名前<span>（必須）</span></label>
+    <input type="text" id="name" name="name" required>
+  </div>
 
-            <div class="form-row">
-              <label for="message">お問い合わせ内容</label>
-              <textarea id="message" name="message" rows="6"></textarea>
-            </div>
+  <div class="form-row">
+    <label for="email">メールアドレス<span>（必須）</span></label>
+    <input type="email" id="email" name="email" required>
+  </div>
 
-            <div class="form-row form-row-submit">
-              <button type="submit" class="btn btn-primary">送信する</button>
-            </div>
-          </form>
+  <div class="form-row">
+    <label for="tel">お電話番号</label>
+    <input type="tel" id="tel" name="tel">
+  </div>
+
+  <div class="form-row">
+    <label for="message">お問い合わせ内容</label>
+    <textarea id="message" name="message" rows="6"></textarea>
+  </div>
+
+  <div class="form-row form-row-submit">
+    <button type="submit" class="btn btn-primary" id="submitBtn">送信する</button>
+    <p class="form-status" id="formStatus" aria-live="polite"></p>
+  </div>
+</form>
+
+<script>
+  (function () {
+    const form = document.getElementById("contactForm");
+    const btn = document.getElementById("submitBtn");
+    const status = document.getElementById("formStatus");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      // honeypotに入力があればbot扱いで無視
+      const hp = form.querySelector('input[name="company"]');
+      if (hp && hp.value.trim() !== "") return;
+
+      btn.disabled = true;
+      btn.textContent = "送信中…";
+      status.textContent = "";
+
+      try {
+        const formData = new FormData(form);
+
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: formData
+        });
+
+        if (!res.ok) throw new Error("送信に失敗しました");
+
+        // GASの返すJSONは読めなくてもOK（okなら成功扱い）
+        status.textContent = "送信しました。担当よりご連絡します。";
+        form.reset();
+
+      } catch (err) {
+        status.textContent = "送信できませんでした。時間をおいて再度お試しください。";
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "送信する";
+      }
+    });
+  })();
+</script>
+
         </div>
       </section>
 
