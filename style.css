@@ -190,7 +190,11 @@ h1, h2, h3, h4 {
 .side-nav-inner {
   padding: 0 16px 24px;
 }
-
+.side-nav-logo {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+}
 .side-nav-logo a {
   display: block;
   margin-bottom: 16px;
