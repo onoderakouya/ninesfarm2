@@ -769,6 +769,84 @@ textarea:focus {
   color: #777;
 }
 
+
+/* ==============================
+   トップページ：ブログカード
+============================== */
+
+.section-blog-preview {
+  background: #ffffff;
+}
+
+.blog-preview-lead {
+  max-width: 720px;
+}
+
+.blog-card-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.blog-card {
+  background: #f9faf9;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-card a {
+  display: block;
+  height: 100%;
+}
+
+.blog-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.blog-card-thumb img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-card-body {
+  padding: 14px 16px 18px;
+}
+
+.blog-card-body time {
+  display: block;
+  font-size: 0.75rem;
+  color: #777;
+  margin-bottom: 4px;
+}
+
+.blog-card-body h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.blog-card-body p {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.blog-preview-more {
+  margin-top: 28px;
+  text-align: center;
+}
+
+/* レスポンシブ */
+@media (max-width: 1024px) {
+  .blog-card-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+
 /* ==============================
    レスポンシブ対応
 ============================== */
