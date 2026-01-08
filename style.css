@@ -1056,3 +1056,163 @@ textarea:focus {
     );
   }
 }
+
+/* =========================
+   定植イベント告知ページ
+========================= */
+
+.section-event {
+  background: #ffffff;
+}
+
+.event-breadcrumb {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 14px;
+}
+
+.event-hero {
+  border-radius: 16px;
+  padding: 28px;
+  background: #f3f5f4;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  margin-bottom: 26px;
+}
+
+.event-hero-text h1 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.event-lead {
+  margin: 0 0 16px;
+  color: #333;
+}
+
+.event-badge {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #2c7a3f;
+  background: rgba(44, 122, 63, 0.10);
+  padding: 6px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.event-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 12px 0 8px;
+}
+
+.event-note {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 8px;
+}
+
+.event-block {
+  margin: 26px 0;
+}
+
+.event-list-check {
+  padding-left: 1.2em;
+  margin: 10px 0 0;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.event-card {
+  background: #f9faf9;
+  border-radius: 14px;
+  padding: 16px 16px 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+.event-detail {
+  background: #f9faf9;
+  border-radius: 14px;
+  padding: 16px 16px 18px;
+}
+
+.event-detail dl {
+  margin: 0;
+}
+
+.event-detail dt {
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+.event-detail dd {
+  margin: 6px 0 0;
+  color: #333;
+}
+
+.event-timeline {
+  background: #f9faf9;
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.event-timeline span {
+  display: inline-block;
+  width: 4.2em;
+  font-weight: 700;
+  color: #2c7a3f;
+}
+
+.event-faq {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.event-faq-item {
+  background: #f9faf9;
+  border-radius: 14px;
+  padding: 14px 14px 16px;
+}
+
+.event-faq-item h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.event-final-cta {
+  margin-top: 30px;
+  padding: 22px;
+  border-radius: 16px;
+  background: #f3f5f4;
+  text-align: center;
+}
+
+/* レスポンシブ */
+@media (max-width: 1024px) {
+  .event-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .event-hero {
+    padding: 18px;
+  }
+  .event-hero-text h1 {
+    font-size: 1.5rem;
+  }
+  .event-faq {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
