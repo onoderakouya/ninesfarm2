@@ -789,6 +789,29 @@ textarea:focus {
   gap: 20px;
 }
 
+/* ブログカード：狭い時は 3列→2列→1列 に落とす */
+@media (max-width: 1280px) {
+  .blog-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 980px) {
+  .blog-card-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* サムネの見た目を安定させる（高さ固定より自然） */
+.blog-card-thumb img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;         /* ここがポイント */
+  object-fit: cover;
+  display: block;
+}
+
+
 .blog-card {
   background: #f9faf9;
   border-radius: 14px;
