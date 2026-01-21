@@ -849,6 +849,20 @@ textarea:focus {
   text-align: center;
 }
 
+/* 「ブログ一覧を見る」をカード一覧の下に固定 */
+.section-blog-preview .blog-preview-more{
+  grid-column: 1 / -1;     /* グリッドの全列を占有（=下の段へ） */
+  justify-self: center;    /* 横中央 */
+  margin-top: 28px;
+  text-align: center;
+}
+
+/* 念のため：ボタン自体は普通に表示 */
+.section-blog-preview .blog-preview-more a{
+  display: inline-flex;
+}
+
+
 
 /* レスポンシブ */
 @media (max-width: 1024px) {
