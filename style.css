@@ -785,46 +785,9 @@ textarea:focus {
 .blog-card-grid {
   margin-top: 24px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
 }
-
-/* ブログカード：狭い時は 3列→2列→1列 に落とす */
-@media (max-width: 1280px) {
-  .blog-card-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 980px) {
-  .blog-card-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-/* サムネの見た目を安定させる（高さ固定より自然） */
-.blog-card-thumb img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  height: auto;         /* ここがポイント */
-  object-fit: cover;
-  display: block;
-}
-
-.blog-card-body h3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.blog-card-body p {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
 
 .blog-card {
   background: #f9faf9;
@@ -843,9 +806,11 @@ textarea:focus {
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
+/* サムネは比率固定で安定 */
 .blog-card-thumb img {
   width: 100%;
-  height: 160px;
+  aspect-ratio: 16 / 9;
+  height: auto;
   object-fit: cover;
   display: block;
 }
@@ -864,17 +829,26 @@ textarea:focus {
 .blog-card-body h3 {
   font-size: 1rem;
   margin-bottom: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .blog-card-body p {
   font-size: 0.85rem;
   color: #555;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .blog-preview-more {
   margin-top: 28px;
   text-align: center;
 }
+
 
 /* レスポンシブ */
 @media (max-width: 1024px) {
