@@ -774,12 +774,20 @@ textarea:focus {
    トップページ：ブログカード
 ============================== */
 
-.blog-card-grid {
+/* ブログ欄だけ横幅を広げる */
+.section-blog-preview .container{
+  max-width: 1280px;   /* 1080 → 1280 くらいに拡張 */
+}
+
+
+.blog-card-grid{
   margin-top: 24px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3列で均等 */
   gap: 20px;
+  width: 100%;
 }
+
 
 
 .section-blog-preview {
@@ -815,13 +823,14 @@ textarea:focus {
 }
 
 /* サムネは比率固定で安定 */
-.blog-card-thumb img {
+.blog-card-thumb img{
   width: 100%;
   aspect-ratio: 16 / 9;
   height: auto;
   object-fit: cover;
   display: block;
 }
+
 
 .blog-card-body {
   padding: 14px 16px 18px;
