@@ -774,6 +774,14 @@ textarea:focus {
    トップページ：ブログカード
 ============================== */
 
+.blog-card-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+
 .section-blog-preview {
   background: #ffffff;
 }
@@ -865,9 +873,9 @@ textarea:focus {
 
 
 /* レスポンシブ */
-@media (max-width: 1024px) {
+@media (min-width: 1100px) {
   .blog-card-grid {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
