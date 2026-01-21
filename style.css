@@ -1298,3 +1298,33 @@ textarea:focus {
 }
 .section-blog-preview > .container{ max-width: 100% !important; }
 
+/* ✅ ブログ欄：広げすぎず、中央寄せにする（左寄り解消） */
+.section-blog-preview .container{
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* ブログ欄の中身だけ、中央に寄せて見栄えを整える */
+.section-blog-preview .container > h2,
+.section-blog-preview .container > .blog-preview-lead,
+.section-blog-preview .container > .blog-card-grid,
+.section-blog-preview .container > .blog-preview-more{
+  max-width: 1200px;     /* ←好みで 1100〜1280 くらいで調整 */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media (max-width: 768px){
+  .section-blog-preview .container > h2,
+  .section-blog-preview .container > .blog-preview-lead,
+  .section-blog-preview .container > .blog-card-grid,
+  .section-blog-preview .container > .blog-preview-more{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+
