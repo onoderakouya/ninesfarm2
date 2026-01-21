@@ -1200,3 +1200,8 @@ textarea:focus {
   aspect-ratio: 16 / 9;
   overflow: hidden;
 }
+/* 「ブログ一覧を見る」ボタンを中央寄せ */
+.blog-preview-more {
+  text-align: center;
+  margin-top: 32px;
+}
