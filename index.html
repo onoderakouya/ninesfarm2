@@ -152,50 +152,14 @@
 
     <div class="blog-card-grid">
 
-      <article class="blog-card">
-        <a href="#">
-          <div class="blog-card-thumb">
-            <img src="assets/image/blog-sample1.jpg" alt="定植作業の様子">
-          </div>
-          <div class="blog-card-body">
-            <time datetime="2026-05-10">2026.05.10</time>
-            <h3>定植イベントを開催しました</h3>
-            <p>今年も九戸村でピーマンの定植を行いました。初参加の方も多く…</p>
-          </div>
-        </a>
-      </article>
+<div class="blog-card-grid" id="blogCards">
+  <!-- JSで最新記事カードを差し込みます -->
+</div>
 
-      <article class="blog-card">
-        <a href="#">
-          <div class="blog-card-thumb">
-            <img src="assets/image/blog-sample2.jpg" alt="研修風景">
-          </div>
-          <div class="blog-card-body">
-            <time datetime="2026-05-03">2026.05.03</time>
-            <h3>研修1年目の春作業が始まりました</h3>
-            <p>土づくりから苗管理まで、春は学びが詰まった季節です。</p>
-          </div>
-        </a>
-      </article>
+<div class="blog-preview-more">
+  <a href="/blog/" class="btn btn-outline">ブログ一覧を見る</a>
+</div>
 
-      <article class="blog-card">
-        <a href="#">
-          <div class="blog-card-thumb">
-            <img src="assets/image/blog-sample3.jpg" alt="畑の様子">
-          </div>
-          <div class="blog-card-body">
-            <time datetime="2026-04-25">2026.04.25</time>
-            <h3>今年の作付け計画について</h3>
-            <p>今年はピーマンを中心に、安定生産を意識した計画を立てました。</p>
-          </div>
-        </a>
-      </article>
-
-    </div>
-
-    <div class="blog-preview-more">
-      <a href="/blog/" class="btn btn-outline">ブログ一覧を見る</a>
-    </div>
   </div>
 </section>
 
@@ -706,5 +670,79 @@
     </div>
   </footer>
 
+
+<script>
+(async () => {
+  const mount = document.getElementById("blogCards");
+  if (!mount) return;
+
+  // WordPress REST API（最新3件、アイキャッチ・抜粋付き）
+  const API = "/blog/wp-json/wp/v2/posts?per_page=3&_embed=1";
+
+  try {
+    const res = await fetch(API, { cache: "no-store" });
+    if (!res.ok) throw new Error("API fetch failed");
+    const posts = await res.json();
+
+    if (!posts.length) {
+      mount.innerHTML = "<p>まだ記事がありません。</p>";
+      return;
+    }
+
+    const html = posts.map(p => {
+      const title = p.title?.rendered ?? "";
+      const url = p.link ?? "#";
+
+      // 日付：YYYY.MM.DD に整形
+      const d = new Date(p.date);
+      const y = d.getFullYear();
+      const m = String(d.getMonth()+1).padStart(2,"0");
+      const day = String(d.getDate()).padStart(2,"0");
+      const dateText = `${y}.${m}.${day}`;
+
+      // 抜粋（HTMLタグを雑に落とす）
+      const excerptHtml = p.excerpt?.rendered ?? "";
+      const excerpt = excerptHtml
+        .replace(/<[^>]*>/g, "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .slice(0, 60) + "…";
+
+      // アイキャッチ（なければプレースホルダ）
+      let img = "assets/image/hero-poster.png";
+      let alt = title;
+      const fm = p._embedded?.["wp:featuredmedia"]?.[0];
+      if (fm?.source_url) img = fm.source_url;
+      if (fm?.alt_text) alt = fm.alt_text;
+
+      return `
+        <article class="blog-card">
+          <a href="${url}">
+            <div class="blog-card-thumb">
+              <img src="${img}" alt="${alt}">
+            </div>
+            <div class="blog-card-body">
+              <time datetime="${p.date}">${dateText}</time>
+              <h3>${title}</h3>
+              <p>${excerpt}</p>
+            </div>
+          </a>
+        </article>
+      `;
+    }).join("");
+
+    mount.innerHTML = html;
+
+  } catch (e) {
+    // 取得できない時は最低限の案内
+    mount.innerHTML = `
+      <p>ブログの最新記事を読み込めませんでした。<a href="/blog/">ブログ一覧</a>をご覧ください。</p>
+    `;
+  }
+})();
+</script>
+
+
+  
 </body>
 </html>
