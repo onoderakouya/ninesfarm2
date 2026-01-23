@@ -1488,3 +1488,62 @@ textarea:focus {
 }
 
 
+/* =========================
+   図解ステップ：アイコン左／テキスト右
+========================= */
+
+.diagram-step{
+  display: grid;
+  grid-template-columns: 44px 1fr; /* アイコン｜テキスト */
+  gap: 14px;
+  align-items: flex-start;
+  text-align: left; /* 中央揃えを解除 */
+}
+
+/* アイコンを目立たせる */
+.diagram-icon{
+  font-size: 1.8rem;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+/* 見出しと文章の余白を整理 */
+.diagram-step h4{
+  margin: 0 0 4px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.diagram-step p{
+  margin: 0;
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* テキスト側をまとめる（暗黙のラッパーとして扱う） */
+.diagram-step h4,
+.diagram-step p{
+  grid-column: 2;
+}
+
+/* =========================
+   スマホでは縦並びに戻す
+========================= */
+@media (max-width: 768px){
+  .diagram-step{
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .diagram-icon{
+    margin: 0 auto 6px;
+  }
+
+  .diagram-step h4,
+  .diagram-step p{
+    grid-column: auto;
+  }
+}
+
+
