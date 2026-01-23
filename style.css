@@ -1854,26 +1854,61 @@ textarea:focus {
 }
 
 /* =========================
-   結論ブロック：画像に“軽く重ねる”
+   九戸村の農業環境：結論ブロック（浮遊感 強化版）
 ========================= */
 .kunohe-advantage-conclusion{
-  margin: -26px auto 28px;   /* ←これが「重ね」の正体 */
+  margin: -30px auto 32px;   /* 画像に少し重ねる */
+  max-width: 880px;
+  padding: 28px 26px;
+  border-radius: 20px;
+
+  /* 白寄りの背景 */
+  background: #ffffff;
+
+  /* 浮いて見える影 */
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.12),
+    0 4px 10px rgba(0, 0, 0, 0.06);
+
+  border: 1px solid rgba(44, 122, 63, 0.12);
+  text-align: center;
+
   position: relative;
-  z-index: 2;                /* 画像より前に出す */
+  z-index: 3;
+}
+
+.kunohe-advantage-conclusion p{
+  margin: 0;
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.85;
+}
+
+.kunohe-advantage-conclusion strong{
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 1.05rem;
+  color: #2c7a3f;
+  font-weight: 700;
+}
+
+/* CTAボタン */
+.kunohe-advantage-conclusion-cta{
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
 /* スマホ調整 */
 @media (max-width: 768px){
-  .kunohe-advantage-hero img{
-    height: 240px;
-  }
-
-  .kunohe-advantage-hero-overlay h2{
-    font-size: 1.35rem;
-  }
-
   .kunohe-advantage-conclusion{
-    margin: -18px auto 22px; /* 重ね量を少し弱める */
+    margin: -20px auto 26px;
+    padding: 22px 18px;
+  }
+
+  .kunohe-advantage-conclusion p{
+    font-size: 0.95rem;
   }
 }
-
