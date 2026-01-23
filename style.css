@@ -1640,19 +1640,24 @@ textarea:focus {
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: flex-end; /* 下側に文字を置く（中間にしたければ center） */
+  align-items: center;        /* ← 縦中央 */
+  justify-content: center;    /* ← 横中央 */
   padding: 22px;
+  text-align: center;         /* ← テキスト中央寄せ */
   background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.65) 0%,
-    rgba(0,0,0,0.35) 45%,
-    rgba(0,0,0,0.05) 100%
+    to bottom,
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,0,0,0.45) 50%,
+    rgba(0,0,0,0.55) 100%
   );
 }
 
+
 .kunohe-advantage-hero-inner{
   max-width: 900px;
+  text-align: center;
 }
+
 
 .section-kunohe-advantage h2{
   margin: 0 0 10px;
