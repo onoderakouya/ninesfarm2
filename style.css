@@ -1437,5 +1437,54 @@ textarea:focus {
     padding: 14px 14px 16px;
   }
 }
+/* =========================
+   図解の「↓」を縦ラインUIにする
+   （HTMLはそのまま .diagram-arrow を使う）
+========================= */
+
+/* ↓文字は消して、縦ラインにする */
+.diagram-arrow{
+  font-size: 0;            /* 文字「↓」を見えなくする */
+  line-height: 0;
+  margin: 10px 0;          /* 全体の間隔はお好みで調整 */
+  position: relative;
+  width: 100%;
+  height: 26px;            /* ラインの高さ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 縦ライン本体 */
+.diagram-arrow::before{
+  content: "";
+  width: 2px;
+  height: 100%;
+  background: rgba(44, 122, 63, 0.35);  /* 緑の薄い線 */
+  border-radius: 999px;
+}
+
+/* 丸いポイント（ラインの中央に置く） */
+.diagram-arrow::after{
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2c7a3f;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+/* スマホは少し詰める */
+@media (max-width: 768px){
+  .diagram-arrow{
+    margin: 8px 0;
+    height: 22px;
+  }
+  .diagram-arrow::after{
+    width: 9px;
+    height: 9px;
+  }
+}
 
 
