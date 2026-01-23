@@ -1610,4 +1610,75 @@ textarea:focus {
   border: 1px solid rgba(36,108,184,0.10);
 }
 
+/* =========================
+   九戸村セクション：画像に文字を重ねるヒーロー
+========================= */
+
+.section-kunohe-advantage{
+  padding-top: 0; /* ヒーローがあるので上余白を整理（好みでOK） */
+}
+
+.kunohe-advantage-hero{
+  position: relative;
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  margin: 0 0 28px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.10);
+}
+
+.kunohe-advantage-hero img{
+  width: 100%;
+  height: clamp(260px, 34vw, 420px);
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02); /* 端の隙間対策＋少しリッチに */
+}
+
+/* 画像の上に暗めグラデ（可読性UP） */
+.kunohe-advantage-hero-overlay{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end; /* 下側に文字を置く（中間にしたければ center） */
+  padding: 22px;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.65) 0%,
+    rgba(0,0,0,0.35) 45%,
+    rgba(0,0,0,0.05) 100%
+  );
+}
+
+.kunohe-advantage-hero-inner{
+  max-width: 900px;
+}
+
+.section-kunohe-advantage h2{
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+  letter-spacing: 0.02em;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.section-kunohe-advantage .kunohe-advantage-lead{
+  margin: 0;
+  color: rgba(255,255,255,0.92);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* スマホは余白を少し詰める */
+@media (max-width: 768px){
+  .kunohe-advantage-hero-overlay{
+    padding: 16px;
+    align-items: flex-end;
+  }
+  .section-kunohe-advantage .kunohe-advantage-lead{
+    font-size: 0.9rem;
+  }
+}
+
 
