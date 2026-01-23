@@ -1686,4 +1686,50 @@ textarea:focus {
   }
 }
 
+/* =========================
+   九戸村の農業環境：ガラス風テキストボックス
+========================= */
+
+.kunohe-advantage-hero-inner{
+  max-width: 900px;
+  padding: 28px 32px;
+  text-align: center;
+
+  /* ガラス風 */
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+
+  color: #ffffff;
+}
+
+/* 見出し */
+.kunohe-advantage-hero-inner h2{
+  font-size: 1.9rem;
+  margin-bottom: 0.6em;
+  line-height: 1.4;
+}
+
+/* 説明文 */
+.kunohe-advantage-lead{
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.95);
+}
+
+/* スマホ調整 */
+@media (max-width: 768px){
+  .kunohe-advantage-hero-inner{
+    padding: 20px 18px;
+    border-radius: 16px;
+  }
+
+  .kunohe-advantage-hero-inner h2{
+    font-size: 1.5rem;
+  }
+}
+
 
