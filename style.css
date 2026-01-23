@@ -1732,4 +1732,27 @@ textarea:focus {
   }
 }
 
+/* =========================
+   スクロールでふわっと表示（reveal）
+========================= */
+
+.reveal{
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s ease, transform .7s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 動きが苦手な人向け（アクセシビリティ） */
+@media (prefers-reduced-motion: reduce){
+  .reveal{
+    transition: none;
+    transform: none;
+  }
+}
 
