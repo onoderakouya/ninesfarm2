@@ -1267,3 +1267,29 @@ textarea:focus {
   background: #f1f7f2;
 }
 
+/* =========================
+   農業支援事業 図解
+========================= */
+
+.agri-support-diagram {
+  max-width: 520px;
+  margin: 24px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ステップごとの色分け */
+.step-prepare {
+  background: #f4f7fb; /* 準備：落ち着いた青 */
+}
+
+.step-start {
+  background: #f3f8f4; /* 開始：安心の緑 */
+}
+
+.step-grow {
+  background: #f9faf4; /* 成長：やや明るめ */
+}
+
+
