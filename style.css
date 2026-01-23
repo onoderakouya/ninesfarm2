@@ -1292,4 +1292,47 @@ textarea:focus {
   background: #f9faf4; /* 成長：やや明るめ */
 }
 
+/* =========================
+   九戸村の農業が選ばれる理由：図解横並び
+========================= */
+
+.agri-reason-diagram-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 32px;
+}
+
+/* 各制度ブロック */
+.agri-reason-item {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px 22px 26px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+}
+
+/* タイトル */
+.agri-reason-title {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+  color: #2c7a3f;
+}
+
+/* リード文 */
+.agri-reason-lead {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+/* =========================
+   スマホでは縦並び
+========================= */
+@media (max-width: 768px) {
+  .agri-reason-diagram-wrap {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+}
+
 
