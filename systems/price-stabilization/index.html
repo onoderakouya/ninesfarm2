@@ -115,29 +115,41 @@
           </p>
 
           <!-- ✅ 共通CSSに既にある図解UIを使用 -->
-          <div class="price-stabilization-diagram">
-            <div class="diagram-step step-risk">
-              <div class="diagram-icon">📉</div>
-              <h4>市場価格が下落</h4>
-              <p>天候や需給の影響で、販売価格が大きく下がることがあります。</p>
-            </div>
+<!-- 横フロー図解（LP用） -->
+<div class="price-flow-diagram">
 
-            <div class="diagram-arrow">↓</div>
+  <div class="price-flow-step is-risk">
+    <span class="price-flow-icon">📉</span>
+    <h4>市場価格が下落</h4>
+    <p>天候や需給の影響で、販売価格が大きく下がることがあります。</p>
+  </div>
 
-            <div class="diagram-step step-protect">
-              <div class="diagram-icon">🧾</div>
-              <h4>一定水準を下回った場合に対象</h4>
-              <p>村で定める補償価格を下回った場合、差額の一部が補償対象になります。</p>
-            </div>
+  <div class="price-flow-arrow">→</div>
 
-            <div class="diagram-arrow">↓</div>
+  <div class="price-flow-step is-check">
+    <span class="price-flow-icon">🧾</span>
+    <h4>補償水準を下回る</h4>
+    <p>村が定める基準価格を下回った場合に、制度が発動します。</p>
+  </div>
 
-            <div class="diagram-step step-safe">
-              <div class="diagram-icon">🛡️</div>
-              <h4>差額の一部を補償</h4>
-              <p>急激な収入減のリスクを軽減し、経営計画を立てやすくします。</p>
-            </div>
-          </div>
+  <div class="price-flow-arrow">→</div>
+
+  <div class="price-flow-step is-support">
+    <span class="price-flow-icon">🛡️</span>
+    <h4>差額の一部を補償</h4>
+    <p>価格下落による収入減の一部を補い、経営を支えます。</p>
+  </div>
+
+  <div class="price-flow-arrow">→</div>
+
+  <div class="price-flow-step is-safe">
+    <span class="price-flow-icon">🌱</span>
+    <h4>経営の安定</h4>
+    <p>急激な変動に左右されず、安心して農業を続けられます。</p>
+  </div>
+
+</div>
+
 
         </div>
       </section>
