@@ -405,3 +405,101 @@ body.page-price-stabilization .section-cta .cta-buttons .btn-outline{
   }
 }
 
+/* =========================
+   対象作物・期間：バッジカード（LP用）
+========================= */
+
+.target-grid{
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.target-card{
+  background: rgba(255,255,255,0.92);
+  border-radius: 18px;
+  padding: 18px 18px 20px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+  position: relative;
+  overflow: hidden;
+}
+
+.target-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:8px;
+  background: linear-gradient(90deg, rgba(44,122,63,0.85), rgba(44,122,63,0.20));
+}
+
+/* 目立たせるカード（主要品目） */
+.target-card.is-strong{
+  background: linear-gradient(180deg, rgba(44,122,63,0.10), rgba(255,255,255,0.95));
+  border-color: rgba(44,122,63,0.20);
+}
+.target-card.is-strong::before{
+  background: linear-gradient(90deg, rgba(44,122,63,1), rgba(44,122,63,0.35));
+}
+
+.target-head{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.target-icon{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(44,122,63,0.10);
+  font-size: 1.35rem;
+}
+
+.target-title{
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.target-period{
+  margin: 0 0 8px;
+  font-weight: 700;
+  color: #222;
+}
+
+.target-badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(44,122,63,0.10);
+  color: #2c7a3f;
+  font-size: 0.82rem;
+  font-weight: 800;
+  margin-right: 8px;
+}
+
+.target-note{
+  margin: 0;
+  font-size: 0.86rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* レスポンシブ */
+@media (max-width: 1024px){
+  .target-grid{
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
