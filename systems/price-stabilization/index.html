@@ -6,343 +6,318 @@
   <title>野菜価格安定補償制度｜ナインズファーム</title>
   <meta name="description" content="野菜価格が一定水準を下回った場合に差額の一部を補償する制度。対象作物・期間、仕組み、負担割合などを分かりやすく解説します。" />
 
-  <!-- ✅ 共通CSS（今のあなたの構成に合わせてパスを調整）
-       例1：style.cssがルート直下なら → ../../style.css
-       例2：assets/css/style.cssなら  → ../../assets/css/style.css
-  -->
+  <!-- ✅ あなたの構成に合わせてパス調整 -->
   <link rel="stylesheet" href="../../style.css" />
-
-  <!-- ページ固有の追加CSSを後で足すならここ（今は空でOK） -->
-  <!-- <link rel="stylesheet" href="./price-stabilization.css" /> -->
 </head>
 
-<body class="page-system page-price-stabilization">
+<body>
 
-  <!-- ヘッダー（サイト共通ヘッダーがあるなら差し替えOK） -->
+  <!-- =========================
+    ヘッダー（共通CSSに合わせた構造）
+  ========================== -->
   <header class="site-header">
-    <div class="container">
-      <a href="/" class="site-logo">ナインズファーム</a>
+    <div class="container header-inner">
+      <div class="logo">
+        <a href="/">ナインズファーム</a>
+      </div>
 
       <nav class="site-nav" aria-label="グローバルナビ">
-        <a href="/">トップ</a>
-        <a href="/#systems">制度一覧</a>
-        <a href="/blog/">ブログ</a>
+        <ul>
+          <li><a href="/">トップ</a></li>
+          <li><a href="/#systems">制度一覧</a></li>
+          <li><a href="/blog/">ブログ</a></li>
+        </ul>
       </nav>
+
+      <div class="header-cta">
+        <a class="btn btn-primary btn-sm" href="/#contact">お問い合わせ</a>
+      </div>
     </div>
   </header>
 
-  <main>
+  <!-- =========================
+    サイドバー運用しているサイトなら、このレイアウトが自然
+    ※ サイドバー不要なら .layout-with-sidebar を外して
+       main-content だけにしてもOK
+  ========================== -->
+  <div class="layout-with-sidebar">
 
-    <!-- =========================
-      HERO（ファーストビュー）
-    ========================== -->
-    <section class="hero hero-system">
-      <div class="container hero-inner">
-        <div class="hero-content">
-          <p class="hero-eyebrow">九戸村の支援制度</p>
-          <h1 class="hero-title">野菜価格安定補償制度</h1>
-          <p class="hero-lead">
-            野菜価格が大きく下がったとき、経営が揺らがないように。<br />
-            価格下落時に「差額の一部」を補償する仕組みを、わかりやすく解説します。
-          </p>
+    <!-- ▼ サイドバーをこのページでも表示する場合：既存のHTMLを流用して貼る
+         サイドバー不要なら、この <aside> を丸ごと削除OK -->
+    <!--
+    <aside class="side-nav">
+      ...（トップと同じサイドバーをコピペ）...
+    </aside>
+    -->
 
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="#mechanism">仕組みを見る</a>
-            <a class="btn btn-outline" href="#eligible">対象・条件を見る</a>
-          </div>
+    <div class="main-content">
 
-          <ul class="hero-badges" aria-label="ポイント要約">
-            <li class="badge">価格下落時のリスクを軽減</li>
-            <li class="badge">対象作物・期間が明確</li>
-            <li class="badge">村・JA・生産者で支える</li>
-          </ul>
-        </div>
+      <!-- =========================
+        HERO（共通CSSの .hero を活用）
+        ※ ここは動画背景なし版（写真/カラー背景にしたいなら後でCSS足す）
+      ========================== -->
+      <section class="hero" id="top">
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <span class="hero-label">九戸村の支援制度</span>
+            <h1>野菜価格安定補償制度</h1>
+            <p>
+              野菜価格が大きく下がったとき、経営が揺らがないように。<br>
+              価格下落時に「差額の一部」を補償する仕組みを、わかりやすく解説します。
+            </p>
 
-        <!-- 図解（ヒーロー右側のイメージ置き場） -->
-        <div class="hero-visual" aria-hidden="true">
-          <div class="visual-card">
-            <p class="visual-caption">図解：価格が下がった分の一部を補償</p>
-            <div class="diagram diagram-hero">
-              <!-- ✅ 後でSVGや画像を入れる場所 -->
-              <div class="diagram-placeholder">
-                <span>（ここに図解を配置）</span>
-              </div>
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="#mechanism">仕組みを見る</a>
+              <a class="btn btn-secondary" href="#target">対象作物・期間</a>
             </div>
           </div>
         </div>
+      </section>
 
-      </div>
-    </section>
+      <!-- =========================
+        1) なぜ必要？
+      ========================== -->
+      <section class="section section-support" id="problem">
+        <div class="container">
+          <h2>農業経営で一番の不安は「価格の下落」</h2>
+          <p class="support-lead">
+            天候や市場の状況によって、野菜の価格は変動します。努力して作っても、価格次第で収入が大きく揺れることがあります。
+            本制度は、価格が一定水準を下回ったときの経営リスクを和らげるための仕組みです。
+          </p>
 
-    <!-- パンくず（必要なら） -->
-    <nav class="breadcrumb" aria-label="パンくずリスト">
-      <div class="container">
-        <a href="/">トップ</a> <span aria-hidden="true">/</span>
-        <a href="/#systems">制度</a> <span aria-hidden="true">/</span>
-        <span>野菜価格安定補償制度</span>
-      </div>
-    </nav>
-
-    <!-- =========================
-      1. 共感：なぜ必要？
-    ========================== -->
-    <section class="section section-problem" id="problem">
-      <div class="container">
-        <h2 class="section-title">農業経営で一番の不安は「価格の下落」</h2>
-        <p class="section-lead">
-          天候や市場の状況によって、野菜の価格は変動します。努力して作っても、価格次第で収入が大きく揺れることがあります。
-          本制度は、価格が一定水準を下回ったときの経営リスクを和らげるための仕組みです。
-        </p>
-
-        <div class="cards cards-3">
-          <div class="card">
-            <h3 class="card-title">価格は読みにくい</h3>
-            <p class="card-text">需要と供給、天候、出荷量などで相場が動きます。</p>
-          </div>
-          <div class="card">
-            <h3 class="card-title">下落が続くと痛い</h3>
-            <p class="card-text">資材費・燃料費があるため、価格下落が直撃します。</p>
-          </div>
-          <div class="card">
-            <h3 class="card-title">新規就農ほど不安</h3>
-            <p class="card-text">経営計画を立てるほど、価格リスクが気になります。</p>
+          <div class="support-grid">
+            <div class="support-item">
+              <h3>価格は読みにくい</h3>
+              <p>需要と供給、天候、出荷量などで相場が動きます。</p>
+            </div>
+            <div class="support-item">
+              <h3>下落が続くと痛い</h3>
+              <p>資材費・燃料費があるため、価格下落が直撃します。</p>
+            </div>
+            <div class="support-item">
+              <h3>新規就農ほど不安</h3>
+              <p>経営計画を立てるほど、価格リスクが気になります。</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- =========================
-      2. 仕組み（図解メイン）
-    ========================== -->
-    <section class="section section-mechanism" id="mechanism">
-      <div class="container">
-        <h2 class="section-title">制度の仕組み（図解）</h2>
-        <p class="section-lead">
-          中央卸売市場などの平均販売価格を基準に、価格が一定水準を下回った場合に、差額の一部を補償します。
-        </p>
+      <!-- =========================
+        2) 仕組み（共通CSSの図解クラスを活用）
+      ========================== -->
+      <section class="section section-support" id="mechanism">
+        <div class="container">
+          <h2>制度の仕組み（図解）</h2>
+          <p class="support-lead">
+            市場価格が一定水準を下回った場合に、差額の一部を補償します。
+            「利益の保証」ではなく、暴落時のダメージを和らげる制度です。
+          </p>
 
-        <div class="split">
-          <div class="split-left">
-            <div class="diagram-card">
-              <h3 class="card-title">価格下落時のイメージ</h3>
-              <div class="diagram diagram-price-gap">
-                <!-- ✅ 後でSVG/画像を入れる場所 -->
-                <div class="diagram-placeholder">
-                  <span>（波形の市場価格＋基準線＋下回り部分＝補償 みたいな図）</span>
-                </div>
-              </div>
-              <p class="note">
-                ※「利益の保証」ではなく、暴落時のダメージを和らげるための制度です。
+          <!-- ✅ 共通CSSに既にある図解UIを使用 -->
+          <div class="price-stabilization-diagram">
+            <div class="diagram-step step-risk">
+              <div class="diagram-icon">📉</div>
+              <h4>市場価格が下落</h4>
+              <p>天候や需給の影響で、販売価格が大きく下がることがあります。</p>
+            </div>
+
+            <div class="diagram-arrow">↓</div>
+
+            <div class="diagram-step step-protect">
+              <div class="diagram-icon">🧾</div>
+              <h4>一定水準を下回った場合に対象</h4>
+              <p>村で定める補償価格を下回った場合、差額の一部が補償対象になります。</p>
+            </div>
+
+            <div class="diagram-arrow">↓</div>
+
+            <div class="diagram-step step-safe">
+              <div class="diagram-icon">🛡️</div>
+              <h4>差額の一部を補償</h4>
+              <p>急激な収入減のリスクを軽減し、経営計画を立てやすくします。</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- =========================
+        3) 対象作物・期間（表）
+      ========================== -->
+      <section class="section section-support" id="target">
+        <div class="container">
+          <h2>対象作物と期間</h2>
+          <p class="support-lead">
+            対象となる作物と期間は以下のとおりです（岩手県青果物等出荷規格に適合するもの）。
+          </p>
+
+          <div style="overflow:auto;">
+            <table style="width:100%; border-collapse:collapse; background:#fff; border-radius:14px; overflow:hidden;">
+              <thead>
+                <tr style="background:#f3f5f4;">
+                  <th style="padding:12px 14px; text-align:left;">品目</th>
+                  <th style="padding:12px 14px; text-align:left;">対象期間</th>
+                  <th style="padding:12px 14px; text-align:left;">規格</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding:12px 14px; border-top:1px solid rgba(0,0,0,0.06);">にんじん</td>
+                  <td style="padding:12px 14px; border-top:1px solid rgba(0,0,0,0.06);">6月〜7月</td>
+                  <td style="padding:12px 14px; border-top:1px solid rgba(0,0,0,0.06);">出荷規格に適合するもの</td>
+                </tr>
+                <tr>
+                  <td style="padding:12px 14px; border-top:1px solid rgba(0,0,0,0.06);">トマト</td>
+                  <td style="padding:12px 14px; border-top:1px solid rgba(0,0,0,0.06);">7月〜11月</td>
+                  <td style="padding:12px 14px; border-top:1px solid rgba(0,0,0,0.06);">出荷規格に適合するもの</td>
+                </tr>
+                <tr>
+                  <td style="padding:12px 14px; border-top:1px solid rgba(0,0,0,0.06);">ピーマン</td>
+                  <td style="padding:12px 14px; border-top:1px solid rgba(0,0,0,0.06);">5月〜10月</td>
+                  <td style="padding:12px 14px; border-top:1px solid rgba(0,0,0,0.06);">出荷規格に適合するもの</td>
+                </tr>
+                <tr>
+                  <td style="padding:12px 14px; border-top:1px solid rgba(0,0,0,0.06);">ねぎ</td>
+                  <td style="padding:12px 14px; border-top:1px solid rgba(0,0,0,0.06);">7月〜12月</td>
+                  <td style="padding:12px 14px; border-top:1px solid rgba(0,0,0,0.06);">出荷規格に適合するもの</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p style="margin-top:12px; font-size:0.85rem; color:#666;">
+            ※対象作物・期間は運用により変更される場合があります。最新情報はお問い合わせください。
+          </p>
+        </div>
+      </section>
+
+      <!-- =========================
+        4) 費用負担（LPらしく“数字で安心”）
+      ========================== -->
+      <section class="section section-support" id="cost">
+        <div class="container">
+          <h2>費用負担の考え方</h2>
+          <p class="support-lead">
+            本制度は、生産者・JA・九戸村が分担して支える仕組みです。村が半分を負担します。
+          </p>
+
+          <div class="support-grid">
+            <div class="support-item">
+              <h3>生産者（加入者）</h3>
+              <p><strong>1/3</strong></p>
+            </div>
+            <div class="support-item">
+              <h3>JA（農協）</h3>
+              <p><strong>1/6</strong></p>
+            </div>
+            <div class="support-item">
+              <h3>九戸村</h3>
+              <p><strong>1/2</strong></p>
+            </div>
+          </div>
+
+          <p style="margin-top:12px; font-size:0.85rem; color:#666;">
+            ※事業は年度単位（4/1〜翌3/31）で運用されます。
+          </p>
+        </div>
+      </section>
+
+      <!-- =========================
+        5) 利用できる人
+      ========================== -->
+      <section class="section section-support" id="eligible">
+        <div class="container">
+          <h2>利用できる方（加入の条件）</h2>
+          <p class="support-lead">
+            九戸村に住所があり、所定の条件を満たした野菜生産者が対象です（加入申請が必要です）。
+          </p>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3>対象となる方</h3>
+              <ul>
+                <li>九戸村に住所がある</li>
+                <li>野菜の生産を行っている</li>
+                <li>所定の条件（出荷・契約など）を満たす</li>
+              </ul>
+            </div>
+
+            <div class="faq-item">
+              <h3>加入の流れ（概要）</h3>
+              <ol>
+                <li>対象作物・期間を確認</li>
+                <li>必要書類を提出</li>
+                <li>制度に加入</li>
+              </ol>
+              <p style="margin-top:10px; font-size:0.85rem; color:#666;">
+                ※手続きの詳細は窓口でご案内します。
               </p>
             </div>
           </div>
-
-          <div class="split-right">
-            <ol class="steps" aria-label="流れ">
-              <li class="step">
-                <div class="step-head">1</div>
-                <div class="step-body">
-                  <p class="step-title">市場価格を確認</p>
-                  <p class="step-text">対象期間の平均販売価格を基準にします。</p>
-                </div>
-              </li>
-              <li class="step">
-                <div class="step-head">2</div>
-                <div class="step-body">
-                  <p class="step-title">一定水準を下回った場合</p>
-                  <p class="step-text">村で定める補償価格を下回ると対象になります。</p>
-                </div>
-              </li>
-              <li class="step">
-                <div class="step-head">3</div>
-                <div class="step-body">
-                  <p class="step-title">差額の一部を補償</p>
-                  <p class="step-text">経営リスクを軽減し、計画を立てやすくします。</p>
-                </div>
-              </li>
-            </ol>
-          </div>
         </div>
+      </section>
 
-      </div>
-    </section>
-
-    <!-- =========================
-      3. 対象作物・期間
-    ========================== -->
-    <section class="section section-target" id="target">
-      <div class="container">
-        <h2 class="section-title">対象作物と期間</h2>
-        <p class="section-lead">
-          対象となる作物と期間は以下のとおりです（出荷規格に適合するもの）。
-        </p>
-
-        <div class="table-wrap">
-          <table class="table table-target">
-            <thead>
-              <tr>
-                <th>品目</th>
-                <th>対象期間</th>
-                <th>備考</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>にんじん</td>
-                <td>6月〜7月</td>
-                <td>出荷規格に適合するもの</td>
-              </tr>
-              <tr>
-                <td>トマト</td>
-                <td>7月〜11月</td>
-                <td>出荷規格に適合するもの</td>
-              </tr>
-              <tr>
-                <td>ピーマン</td>
-                <td>5月〜10月</td>
-                <td>出荷規格に適合するもの</td>
-              </tr>
-              <tr>
-                <td>ねぎ</td>
-                <td>7月〜12月</td>
-                <td>出荷規格に適合するもの</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p class="note">
-          ※対象作物・期間は年度や制度運用により変更される場合があります。最新情報はお問い合わせください。
-        </p>
-      </div>
-    </section>
-
-    <!-- =========================
-      4. 費用負担（図解向き）
-    ========================== -->
-    <section class="section section-cost" id="cost">
-      <div class="container">
-        <h2 class="section-title">費用負担の考え方</h2>
-        <p class="section-lead">
-          本制度は、生産者・JA・九戸村が分担して支える仕組みです。
-        </p>
-
-        <div class="split">
-          <div class="split-left">
-            <div class="diagram-card">
-              <h3 class="card-title">負担割合（図解）</h3>
-              <div class="diagram diagram-share">
-                <!-- ✅ 後で円グラフ画像 or 横バー図を入れる -->
-                <div class="diagram-placeholder">
-                  <span>生産者 1/3 ｜ JA 1/6 ｜ 九戸村 1/2（ここを図に）</span>
-                </div>
-              </div>
-              <p class="note">村が半分を負担することで、生産者のリスクを軽減します。</p>
-            </div>
-          </div>
-
-          <div class="split-right">
-            <div class="card">
-              <h3 class="card-title">事業費の上限</h3>
-              <p class="card-text">年間の事業費は上限が定められています（制度運用により変動する場合があります）。</p>
-              <ul class="list">
-                <li>年度単位で運用（4/1〜翌3/31）</li>
-                <li>関係機関で適切に管理・協議</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- =========================
-      5. 利用できる人（加入条件）
-    ========================== -->
-    <section class="section section-eligible" id="eligible">
-      <div class="container">
-        <h2 class="section-title">利用できる方（加入の条件）</h2>
-        <p class="section-lead">
-          九戸村で野菜を生産し、所定の手続きを行った生産者が対象となります。
-        </p>
-
-        <div class="cards cards-2">
-          <div class="card">
-            <h3 class="card-title">対象者のイメージ</h3>
-            <ul class="list">
-              <li>九戸村に住所がある</li>
-              <li>野菜の生産を行っている</li>
-              <li>出荷・契約など所定の条件を満たす</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3 class="card-title">加入の流れ（ざっくり）</h3>
-            <ol class="list">
-              <li>対象品目・期間を確認</li>
-              <li>申請書類を提出</li>
-              <li>制度に加入</li>
-            </ol>
-            <p class="note">※申請の詳細は窓口でご案内します。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================
-      6. 運営体制・信頼性
-    ========================== -->
-    <section class="section section-admin" id="admin">
-      <div class="container">
-        <h2 class="section-title">運営体制</h2>
-        <p class="section-lead">
-          関係機関が連携し、適正で円滑な運用を行います。
-        </p>
-
-        <div class="cards cards-3">
-          <div class="card">
-            <h3 class="card-title">九戸村</h3>
-            <p class="card-text">地域農業の安定と振興のために制度を支えます。</p>
-          </div>
-          <div class="card">
-            <h3 class="card-title">JA（農協）</h3>
-            <p class="card-text">運営や手続きの窓口として連携します。</p>
-          </div>
-          <div class="card">
-            <h3 class="card-title">運営委員会</h3>
-            <p class="card-text">必要事項の協議・調整を行い、適正に管理します。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================
-      7. まとめ（締め）
-    ========================== -->
-    <section class="section section-summary" id="summary">
-      <div class="container">
-        <div class="summary-box">
-          <h2 class="section-title">まとめ：価格変動があっても、続けられる農業へ</h2>
-          <p class="section-lead">
-            価格が大きく下がったときに備える仕組みがあることで、農業経営の見通しが立てやすくなります。
-            九戸村では、新規就農者も含め、地域で農業を続けていくための環境づくりを進めています。
+      <!-- =========================
+        6) 運営体制
+      ========================== -->
+      <section class="section section-support" id="admin">
+        <div class="container">
+          <h2>運営体制</h2>
+          <p class="support-lead">
+            関係機関が連携し、適正で円滑な運用を行います。
           </p>
 
-          <div class="summary-cta">
-            <a class="btn btn-primary" href="/#contact">制度について問い合わせる</a>
-            <a class="btn btn-outline" href="/#systems">他の制度も見る</a>
+          <div class="support-grid">
+            <div class="support-item">
+              <h3>九戸村</h3>
+              <p>地域農業の安定と振興のために制度を支えます。</p>
+            </div>
+            <div class="support-item">
+              <h3>JA（農協）</h3>
+              <p>手続きや運用面で連携し、窓口としても機能します。</p>
+            </div>
+            <div class="support-item">
+              <h3>運営委員会</h3>
+              <p>必要事項の協議・調整を行い、制度を適正に管理します。</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-  </main>
+      <!-- =========================
+        7) 結論CTA
+      ========================== -->
+      <section class="section section-cta" id="cta">
+        <div class="container">
+          <h2>制度について詳しく知りたい方へ</h2>
+          <p>対象作物や加入手続きなど、気になる点はお気軽にお問い合わせください。</p>
+          <div class="cta-buttons">
+            <a class="btn btn-primary" href="/#contact">お問い合わせ</a>
+            <a class="btn btn-outline" href="/#systems">制度一覧へ戻る</a>
+          </div>
+        </div>
+      </section>
 
-  <footer class="site-footer">
-    <div class="container">
-      <small>© Nines Farm</small>
-      <a href="#top" class="to-top">ページ上部へ</a>
-    </div>
-  </footer>
+      <footer class="site-footer">
+        <div class="container footer-inner">
+          <div>
+            <div class="footer-logo">ナインズファーム</div>
+            <div class="footer-address">岩手県九戸村</div>
+            <div class="footer-copy">© Nines Farm</div>
+          </div>
+
+          <nav class="footer-nav" aria-label="フッターナビ">
+            <ul>
+              <li><a href="/">トップ</a></li>
+              <li><a href="/#contact">お問い合わせ</a></li>
+              <li><a href="#top">ページ上部へ</a></li>
+            </ul>
+          </nav>
+        </div>
+      </footer>
+
+    </div><!-- /.main-content -->
+  </div><!-- /.layout-with-sidebar -->
 
 </body>
 </html>
