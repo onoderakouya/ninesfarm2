@@ -643,4 +643,21 @@ body.page-price-stabilization #faq-system .faq-item p{
   margin: 0;
   color: #444;
 }
+/* =========================
+   このページはサイドバー無しで全幅表示
+========================= */
+body.no-sidebar .layout-with-sidebar{
+  display: block;         /* flexを解除 */
+  padding-top: 64px;      /* 固定ヘッダー分の余白は維持（スマホは共通CSSで解除される） */
+}
+
+body.no-sidebar .main-content{
+  margin-left: 0 !important;  /* 260pxずれを解除 */
+  width: 100%;
+}
+
+/* 念のため：サイドナビがHTMLに残ってても非表示 */
+body.no-sidebar .side-nav{
+  display: none !important;
+}
 
