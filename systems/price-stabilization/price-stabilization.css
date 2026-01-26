@@ -633,4 +633,14 @@ body.page-price-stabilization .section-cta .cta-buttons .btn-outline{
   }
 }
 
+/* FAQセクション（制度ページだけ少し強調） */
+body.page-price-stabilization #faq-system .faq-item h3{
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+body.page-price-stabilization #faq-system .faq-item p{
+  margin: 0;
+  color: #444;
+}
 
