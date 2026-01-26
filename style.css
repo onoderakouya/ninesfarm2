@@ -1801,3 +1801,21 @@ textarea:focus {
     padding: 20px 16px;
   }
 }
+
+/* select（件名選択）を入力欄と統一 */
+select{
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #d0d7d3;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background-color: #fff;
+}
+
+select:focus{
+  outline: 2px solid #2c7a3f;
+  outline-offset: 1px;
+  border-color: #2c7a3f;
+}
+
