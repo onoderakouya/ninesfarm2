@@ -503,3 +503,134 @@ body.page-price-stabilization .section-cta .cta-buttons .btn-outline{
   }
 }
 
+/* =========================
+   加入条件：チェックリスト（LP用）
+========================= */
+
+.eligible-wrap{
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.eligible-card{
+  background: rgba(255,255,255,0.92);
+  border-radius: 18px;
+  padding: 18px 18px 20px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+  position: relative;
+  overflow: hidden;
+}
+
+.eligible-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:8px;
+  background: linear-gradient(90deg, rgba(44,122,63,0.85), rgba(44,122,63,0.20));
+}
+
+.eligible-card.is-strong{
+  background: linear-gradient(180deg, rgba(44,122,63,0.10), rgba(255,255,255,0.95));
+  border-color: rgba(44,122,63,0.20);
+}
+.eligible-card.is-strong::before{
+  background: linear-gradient(90deg, rgba(44,122,63,1), rgba(44,122,63,0.35));
+}
+
+.eligible-title{
+  margin: 0 0 12px;
+  font-size: 1.12rem;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+/* ✅ チェックリスト */
+.checklist{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.checklist li{
+  position: relative;
+  padding-left: 34px;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+.checklist li::before{
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  width: 24px;
+  height: 24px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(44,122,63,0.12);
+  color: #2c7a3f;
+  font-weight: 900;
+}
+
+/* ✅ 3ステップ */
+.steplist{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.steplist li{
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(44,122,63,0.06);
+  border: 1px solid rgba(44,122,63,0.10);
+}
+
+.step-no{
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #2c7a3f;
+  color: #fff;
+  font-weight: 900;
+}
+
+.step-text{
+  font-size: 0.92rem;
+  color: #222;
+  line-height: 1.6;
+}
+
+.eligible-note{
+  margin: 12px 0 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* レスポンシブ */
+@media (max-width: 1024px){
+  .eligible-wrap{
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+
