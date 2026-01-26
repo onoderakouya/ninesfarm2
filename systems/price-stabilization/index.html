@@ -57,24 +57,40 @@
         HERO（共通CSSの .hero を活用）
         ※ ここは動画背景なし版（写真/カラー背景にしたいなら後でCSS足す）
       ========================== -->
-      <section class="hero" id="top">
-        <div class="container hero-inner">
-          <div class="hero-text">
-            <span class="hero-label">九戸村の支援制度</span>
-            <h1>野菜価格安定補償制度</h1>
-            <p>
-              野菜価格が大きく下がったとき、経営が揺らがないように。<br>
-              価格下落時に「差額の一部」を補償する仕組みを、わかりやすく解説します。
-            </p>
+<section class="hero hero-video" id="top">
+  <div class="hero-video-bg" aria-hidden="true">
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="../../assets/image/price-stabilization-hero.jpg"
+    >
+      <source src="../../assets/video/price-stabilization-hero.webm" type="video/webm">
+      <source src="../../assets/video/price-stabilization-hero.mp4" type="video/mp4">
+    </video>
+  </div>
 
-<div class="hero-cta">
-  <a class="btn btn-primary" href="#eligible">対象になるか確認する</a>
-  <a class="btn btn-secondary" href="#mechanism">制度の仕組みを図解で見る</a>
-</div>
+  <div class="hero-video-overlay" aria-hidden="true"></div>
 
-          </div>
-        </div>
-      </section>
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <span class="hero-label">九戸村の支援制度</span>
+      <h1>野菜価格安定補償制度</h1>
+      <p>
+        野菜価格が大きく下がったとき、経営が揺らがないように。<br>
+        価格下落時に「差額の一部」を補償する仕組みを、わかりやすく解説します。
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#eligible">対象になるか確認する</a>
+        <a class="btn btn-secondary" href="#mechanism">制度の仕組みを図解で見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       <!-- =========================
         1) なぜ必要？
