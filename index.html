@@ -942,6 +942,19 @@
   })();
 </script>
 
+  <script>
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const subject = params.get("subject");
+    if (subject === "price") {
+      const select = document.getElementById("subject");
+      if (select) {
+        select.value = "野菜価格安定補償制度について";
+      }
+    }
+  })();
+</script>
+
   
 </body>
 </html>
