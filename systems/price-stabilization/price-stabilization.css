@@ -325,4 +325,83 @@ body.page-price-stabilization .section-cta .cta-buttons .btn-outline{
     gap: 14px;
   }
 }
+/* =========================
+   数字カード（LP用）
+========================= */
+
+.stats-grid{
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.stat-card{
+  background: rgba(255,255,255,0.92);
+  border-radius: 18px;
+  padding: 18px 18px 20px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 上部アクセント帯 */
+.stat-card::before{
+  content:"";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, rgba(44,122,63,0.95), rgba(44,122,63,0.25));
+}
+
+.stat-label{
+  margin: 0 0 8px;
+  font-weight: 700;
+  color: #2c7a3f;
+  letter-spacing: 0.02em;
+}
+
+.stat-value{
+  margin: 0 0 8px;
+  font-weight: 900;
+  font-size: clamp(2.0rem, 3.2vw, 2.6rem);
+  line-height: 1.1;
+  color: #111;
+}
+
+.stat-note{
+  margin: 0;
+  font-size: 0.86rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* 一番強調したいカード（村の負担） */
+.stat-card.is-strong{
+  background: linear-gradient(180deg, rgba(44,122,63,0.10), rgba(255,255,255,0.95));
+  border-color: rgba(44,122,63,0.20);
+}
+
+.stat-card.is-strong::before{
+  background: linear-gradient(90deg, rgba(44,122,63,1), rgba(44,122,63,0.35));
+}
+
+/* 小さめ注記 */
+.mini-note{
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* =========================
+   レスポンシブ
+========================= */
+@media (max-width: 1024px){
+  .stats-grid{
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
 
