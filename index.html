@@ -747,10 +747,17 @@
     <input type="tel" id="tel" name="tel">
   </div>
 
-  <div class="form-row">
-    <label for="message">お問い合わせ内容</label>
-    <textarea id="message" name="message" rows="6"></textarea>
-  </div>
+<div class="form-row">
+  <label for="subject">お問い合わせ内容 <span>必須</span></label>
+  <select id="subject" name="subject" required>
+    <option value="">選択してください</option>
+    <option value="野菜価格安定補償制度について">野菜価格安定補償制度について</option>
+    <option value="農業研修について">農業研修について</option>
+    <option value="就農・独立について">就農・独立について</option>
+    <option value="その他">その他</option>
+  </select>
+</div>
+
 
   <div class="form-row form-row-submit">
     <button type="submit" class="btn btn-primary" id="submitBtn">送信する</button>
