@@ -661,3 +661,40 @@ body.no-sidebar .side-nav{
   display: none !important;
 }
 
+/* =========================
+   ヒーロー動画対応（このページだけ）
+========================= */
+
+/* 動画ヒーローでは背景グラデを弱める（動画が主役） */
+body.page-price-stabilization .hero.hero-video{
+  background: none;
+}
+
+/* 動画の上の暗幕を少し強めて文字を読みやすく */
+body.page-price-stabilization .hero.hero-video .hero-video-overlay{
+  background: linear-gradient(
+    to bottom right,
+    rgba(10,20,10,0.78),
+    rgba(10,20,10,0.60)
+  );
+}
+
+/* ガラス風ボックスはそのまま活かす（さらに読みやすく微調整） */
+body.page-price-stabilization .hero.hero-video .hero-text{
+  background: rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* 動画が重い端末向け：動きを減らす設定の人には動画を非表示 */
+@media (prefers-reduced-motion: reduce){
+  body.page-price-stabilization .hero.hero-video .hero-video-bg{
+    display: none;
+  }
+  body.page-price-stabilization .hero.hero-video{
+    background: linear-gradient(135deg, rgba(10,20,10,0.92), rgba(10,20,10,0.70));
+  }
+}
+
+
