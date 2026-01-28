@@ -1,1 +1,337 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>農業支援事業｜九戸村の支援メニュー</title>
+  <meta name="description" content="九戸村の農業支援事業を、目的別にわかりやすく整理。設備投資・資金・耕作放棄地再生・資格取得など、あなたに合う支援を探せます。" />
+
+  <!-- 共通CSS -->
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <!-- ページ専用CSS -->
+  <link rel="stylesheet" href="../../assets/css/agri-support.css" />
+</head>
+
+<body class="page-agri-support no-sidebar">
+  <!-- ヘッダー（必要ならトップと同じものを貼る） -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo"><a href="/">Nines Farm</a></div>
+
+      <nav class="site-nav" aria-label="グローバルナビ">
+        <ul>
+          <li><a href="/#reason">選ばれる理由</a></li>
+          <li><a href="/#program">研修内容</a></li>
+          <li><a href="/#support">独立支援</a></li>
+          <li><a href="/#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-cta">
+        <a class="btn btn-primary btn-sm" href="/#contact">相談する</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- サイドバー無し：layout-with-sidebar は使わず、mainを直置き -->
+  <main class="page-main">
+
+    <!-- ヒーロー -->
+    <section class="hero hero-simple" id="top">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <span class="hero-label">九戸村の支援制度</span>
+          <h1>農業支援事業</h1>
+          <p>
+            「設備を整えたい」「資金を確保したい」「耕作放棄地を再生したい」など、目的別に探せる支援メニューをまとめました。<br>
+            まずは “あなたに近い目的” から確認できます。
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#quick">目的別に探す</a>
+            <a class="btn btn-secondary" href="/#contact?subject=agri-support">相談する</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 目的別ショートカット -->
+    <section class="section section-support" id="quick">
+      <div class="container">
+        <h2>まずは目的から探す</h2>
+        <p class="support-lead">該当しそうな項目を選ぶと、下の「支援メニュー一覧」まで移動できます。</p>
+
+        <div class="quick-grid">
+          <a class="quick-card" href="#list" data-filter="invest">
+            <div class="quick-icon">🛠️</div>
+            <h3>設備・基盤を整えたい</h3>
+            <p>農業生産基盤整備、機械・資材の導入など</p>
+          </a>
+
+          <a class="quick-card" href="#list" data-filter="finance">
+            <div class="quick-icon">💰</div>
+            <h3>資金面を安定させたい</h3>
+            <p>無利子貸付、融資活用型補助など</p>
+          </a>
+
+          <a class="quick-card" href="#list" data-filter="land">
+            <div class="quick-icon">🌾</div>
+            <h3>耕作放棄地を再生したい</h3>
+            <p>再生・整備の費用支援</p>
+          </a>
+
+          <a class="quick-card" href="#list" data-filter="skill">
+            <div class="quick-icon">🎓</div>
+            <h3>資格・スキルを取りたい</h3>
+            <p>大特・けん引・フォーク・ドローン等</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 支援メニュー一覧 -->
+    <section class="section section-life" id="list">
+      <div class="container">
+        <h2>支援メニュー一覧</h2>
+        <p class="life-intro">村単／県単／国庫の支援を、カード形式で整理しています。</p>
+
+        <!-- フィルター -->
+        <div class="filter-bar" aria-label="フィルター">
+          <button class="filter-btn is-active" type="button" data-filter="all">すべて</button>
+          <button class="filter-btn" type="button" data-filter="village">村単</button>
+          <button class="filter-btn" type="button" data-filter="pref">県単</button>
+          <button class="filter-btn" type="button" data-filter="national">国庫</button>
+          <span class="filter-sep"></span>
+          <button class="filter-btn" type="button" data-filter="invest">設備・基盤</button>
+          <button class="filter-btn" type="button" data-filter="finance">資金</button>
+          <button class="filter-btn" type="button" data-filter="land">耕作放棄地</button>
+          <button class="filter-btn" type="button" data-filter="skill">資格</button>
+          <button class="filter-btn" type="button" data-filter="livestock">畜産</button>
+          <button class="filter-btn" type="button" data-filter="specialty">特産</button>
+          <button class="filter-btn" type="button" data-filter="processing">加工</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid">
+          <!-- 村単：農業生産基盤整備事業 -->
+          <article class="menu-card" data-tags="village invest">
+            <p class="menu-badge">村単</p>
+            <h3>農業生産基盤整備事業</h3>
+            <p class="menu-lead">農地保全・地域活性化のための基盤整備を支援（農業者団体）。</p>
+            <dl class="menu-dl">
+              <dt>補助率</dt><dd>8/10</dd>
+              <dt>上限</dt><dd>160万円</dd>
+            </dl>
+          </article>
+
+          <!-- 村単：農林業振興資金（無利子貸付） -->
+          <article class="menu-card" data-tags="village finance">
+            <p class="menu-badge">村単</p>
+            <h3>農林業振興資金（無利子貸付）</h3>
+            <p class="menu-lead">資材・機械購入等に無利子で貸付。</p>
+            <dl class="menu-dl">
+              <dt>貸付割合</dt><dd>事業費の8/10</dd>
+              <dt>上限</dt><dd>300万円</dd>
+              <dt>償還</dt><dd>7年以内</dd>
+            </dl>
+          </article>
+
+          <!-- 村単：耕作放棄地再生利用対策 -->
+          <article class="menu-card" data-tags="village land">
+            <p class="menu-badge">村単</p>
+            <h3>耕作放棄地再生利用対策</h3>
+            <p class="menu-lead">耕作放棄地の再生に係る費用の一部を支援。</p>
+            <dl class="menu-dl">
+              <dt>支援</dt><dd>10aあたり 25,000円</dd>
+            </dl>
+          </article>
+
+          <!-- 村単：肥育素牛導入 -->
+          <article class="menu-card" data-tags="village livestock">
+            <p class="menu-badge">村単</p>
+            <h3>肥育素牛導入</h3>
+            <p class="menu-lead">和牛肥育の維持発展のため、導入費の一部を支援（地域内購入）。</p>
+            <dl class="menu-dl">
+              <dt>補助率</dt><dd>導入価格の1/3</dd>
+              <dt>上限</dt><dd>20万円／頭</dd>
+            </dl>
+          </article>
+
+          <!-- 村単：甘茶新植支援 -->
+          <article class="menu-card" data-tags="village specialty">
+            <p class="menu-badge">村単</p>
+            <h3>甘茶新植支援</h3>
+            <p class="menu-lead">未収益期間の管理経費を軽減するための支援。</p>
+            <dl class="menu-dl">
+              <dt>補助率</dt><dd>2/3</dd>
+              <dt>上限</dt><dd>10aあたり66,000円</dd>
+              <dt>支払</dt><dd>3年分割</dd>
+            </dl>
+          </article>
+
+          <!-- 村単：山わさび圃場整備支援 -->
+          <article class="menu-card" data-tags="village specialty invest">
+            <p class="menu-badge">村単</p>
+            <h3>山わさび圃場整備支援</h3>
+            <p class="menu-lead">新規圃場整備に係る費用の一部を支援。</p>
+            <dl class="menu-dl">
+              <dt>補助率</dt><dd>2/3</dd>
+              <dt>上限</dt><dd>10aあたり100,000円</dd>
+            </dl>
+          </article>
+
+          <!-- 村単：資格取得補助 -->
+          <article class="menu-card" data-tags="village skill">
+            <p class="menu-badge">村単</p>
+            <h3>新規担い手 資格取得補助</h3>
+            <p class="menu-lead">大特（農耕限定）・けん引・フォーク・農業ドローン等の資格取得を支援。</p>
+            <dl class="menu-dl">
+              <dt>補助率</dt><dd>1/2</dd>
+              <dt>上限</dt><dd>1資格2万円／複数上限5万円</dd>
+            </dl>
+          </article>
+
+          <!-- 村単：漬物製造業 継続支援 -->
+          <article class="menu-card" data-tags="village processing">
+            <p class="menu-badge">村単</p>
+            <h3>漬物製造業 継続支援</h3>
+            <p class="menu-lead">営業許可に必要な施設・設備整備の支援（新規参入も対象）。</p>
+            <dl class="menu-dl">
+              <dt>補助率</dt><dd>1/2</dd>
+              <dt>上限</dt><dd>20万円</dd>
+            </dl>
+          </article>
+
+          <!-- 県単：地域農業計画実践支援 -->
+          <article class="menu-card" data-tags="pref invest">
+            <p class="menu-badge is-pref">県単</p>
+            <h3>いわて地域農業計画実践支援</h3>
+            <p class="menu-lead">団体の資材・機械導入等を支援。</p>
+            <dl class="menu-dl">
+              <dt>補助率</dt><dd>1/2（県1/3・村1/6）</dd>
+            </dl>
+          </article>
+
+          <!-- 国庫：経営体育成支援 -->
+          <article class="menu-card" data-tags="national finance invest">
+            <p class="menu-badge is-national">国庫</p>
+            <h3>経営体育成支援（融資活用）</h3>
+            <p class="menu-lead">融資を活用した機械・施設導入に対し、融資残に補助。</p>
+            <dl class="menu-dl">
+              <dt>補助</dt><dd>国3/10（要件あり）</dd>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 申請の流れ -->
+    <section class="section section-program" id="flow">
+      <div class="container">
+        <h2>申請までの流れ</h2>
+        <p class="support-lead">まずは目的と対象要件を確認し、窓口へ相談するのが最短です。</p>
+
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="flow-no">1</div>
+            <h3>目的に近い支援を探す</h3>
+            <p>設備・資金・資格など、必要に近い支援を確認します。</p>
+          </div>
+
+          <div class="flow-step">
+            <div class="flow-no">2</div>
+            <h3>要件・必要書類を確認</h3>
+            <p>対象者・期間・補助率・上限・申請方法などを整理します。</p>
+          </div>
+
+          <div class="flow-step">
+            <div class="flow-no">3</div>
+            <h3>窓口に相談・申請</h3>
+            <p>九戸村 産業振興課 生産振興係へ。状況に応じて最適な案内をします。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-faq" id="faq">
+      <div class="container">
+        <h2>よくある質問</h2>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3>Q. どれが自分に合う支援か分かりません。</h3>
+            <p>A. 目的（設備・資金・資格など）から一緒に整理できます。まずは相談が最短です。</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Q. 申請の時期は決まっていますか？</h3>
+            <p>A. 事業によって異なります。年度や募集期間の有無も含め、窓口でご案内します。</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Q. 個人でも利用できますか？団体のみですか？</h3>
+            <p>A. 事業によって対象が異なります。カードの説明に加え、詳細は窓口で確認できます。</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Q. 複数の支援を同時に使えますか？</h3>
+            <p>A. 条件や補助制度の組み合わせによって異なるため、事前相談をおすすめします。</p>
+          </div>
+        </div>
+
+        <div class="cta-buttons" style="margin-top: 18px;">
+          <a class="btn btn-primary" href="/#contact?subject=agri-support">支援について相談する</a>
+          <a class="btn btn-outline" href="#top">ページ上部へ戻る</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <div class="footer-logo">Nines Farm</div>
+          <div class="footer-address">岩手県九戸村</div>
+          <div class="footer-copy">© Nines Farm</div>
+        </div>
+        <nav class="footer-nav" aria-label="フッターナビ">
+          <ul>
+            <li><a href="/">トップ</a></li>
+            <li><a href="/#contact">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- フィルター用JS（軽量） -->
+  <script>
+    (function(){
+      const btns = document.querySelectorAll(".filter-btn");
+      const cards = document.querySelectorAll(".menu-card");
+      const quick = document.querySelectorAll(".quick-card");
+
+      function apply(filter){
+        btns.forEach(b => b.classList.toggle("is-active", b.dataset.filter === filter));
+        cards.forEach(card => {
+          const tags = (card.dataset.tags || "").split(/\s+/);
+          const show = (filter === "all") ? true : tags.includes(filter);
+          card.style.display = show ? "" : "none";
+        });
+      }
+
+      btns.forEach(b => b.addEventListener("click", () => apply(b.dataset.filter)));
+
+      // 目的別ショートカット：クリックでフィルタ適用
+      quick.forEach(a => a.addEventListener("click", () => {
+        const f = a.dataset.filter;
+        if (f) apply(f);
+      }));
+
+      apply("all");
+    })();
+  </script>
+</body>
+</html>
 
