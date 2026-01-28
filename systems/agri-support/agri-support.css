@@ -172,3 +172,15 @@
   border-radius: 14px;
   padding: 12px 12px;
   border
+}
+
+.cta-note{
+  margin: 10px 0 0;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.85);
+}
+
+.section-faq .cta-note{
+  color: #666;
+  text-align: center;
+}
