@@ -13,12 +13,10 @@
 }
 
 .page-agri-support .hero-text{
-  background: rgba(255,255,255,0.18);
-  border: 1px solid rgba(255,255,255,0.22);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.38);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 14px;
 }
-
 
 /* 目的別ショートカット */
 .quick-grid{
@@ -268,11 +266,12 @@
 ========================= */
 
 .support-pdf-box{
-  max-width: 1080px;   /* 共通containerと同じ */
-  margin: 28px auto 0; /* 中央寄せ */
+  margin-top: 28px;
   padding: 22px 22px 24px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #f3f8f4, #ffffff);
+  border: 1px solid rgba(44,122,63,0.18);
 }
-
 
 .support-pdf-inner{
   display: grid;
@@ -476,8 +475,3 @@
 .page-agri-support .hero-text{
   text-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
-
-@media (max-width: 768px){
-  .page-main{ padding-top: 0; }
-}
-
