@@ -388,6 +388,48 @@
       apply("all");
     })();
   </script>
+
+  <script>
+(function(){
+  const steps = document.querySelectorAll(".diag-step");
+  const resultBox = document.querySelector(".diag-result");
+  const resultText = document.getElementById("diagResultText");
+
+  let answers = [];
+
+  steps.forEach((step, index) => {
+    step.querySelectorAll("button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        answers.push(btn.dataset.value);
+        step.classList.remove("is-active");
+
+        if (steps[index + 1]) {
+          steps[index + 1].classList.add("is-active");
+        } else {
+          showResult();
+        }
+      });
+    });
+  });
+
+  function showResult(){
+    let message = "設備導入や基盤整備を中心に、利用できる支援がある可能性があります。";
+    if (answers.includes("finance")) {
+      message = "資金面を支える支援（無利子貸付・補助制度）が候補になりそうです。";
+    }
+    if (answers.includes("land")) {
+      message = "耕作放棄地の再生・活用に関する支援が検討できます。";
+    }
+    if (answers.includes("skill")) {
+      message = "資格取得を支援する制度が活用できそうです。";
+    }
+
+    resultText.textContent = message;
+    resultBox.style.display = "block";
+  }
+})();
+</script>
+
 </body>
 </html>
 
