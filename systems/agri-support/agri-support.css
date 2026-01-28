@@ -184,3 +184,68 @@
   color: #666;
   text-align: center;
 }
+
+/* =========================
+   簡易診断
+========================= */
+
+.section-diagnosis{
+  background: #ffffff;
+}
+
+.diagnosis-box{
+  max-width: 720px;
+  margin: 24px auto 0;
+  padding: 22px 22px 26px;
+  border-radius: 18px;
+  background: #f9faf9;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.diag-step{
+  display: none;
+}
+
+.diag-step.is-active{
+  display: block;
+}
+
+.diag-q{
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.diag-choices{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.diag-choices button{
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.diag-choices button:hover{
+  background: #f3f8f4;
+}
+
+.diag-result{
+  display: none;
+  text-align: center;
+}
+
+.diag-result-title{
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.diag-result-text{
+  margin-bottom: 14px;
+  color: #333;
+}
+
