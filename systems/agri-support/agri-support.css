@@ -171,8 +171,9 @@
   background: #f9faf9;
   border-radius: 14px;
   padding: 12px 12px;
-  border
+  border: 1px solid rgba(0,0,0,0.06);
 }
+
 
 .cta-note{
   margin: 10px 0 0;
