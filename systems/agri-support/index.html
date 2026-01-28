@@ -362,34 +362,38 @@
   </main>
 
   <!-- フィルター用JS（軽量） -->
-  <script>
-    (function(){
-      const btns = document.querySelectorAll(".filter-btn");
-      const cards = document.querySelectorAll(".menu-card");
-      const quick = document.querySelectorAll(".quick-card");
+<script>
+  (function(){
+    const btns = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".menu-card");
+    const quick = document.querySelectorAll(".quick-card");
 
-      function apply(filter){
-        btns.forEach(b => b.classList.toggle("is-active", b.dataset.filter === filter));
-        cards.forEach(card => {
-          const tags = (card.dataset.tags || "").split(/\s+/);
-          const show = (filter === "all") ? true : tags.includes(filter);
-          card.style.display = show ? "" : "none";
-        });
-      }
+    function apply(filter){
+      btns.forEach(b => b.classList.toggle("is-active", b.dataset.filter === filter));
+      cards.forEach(card => {
+        const tags = (card.dataset.tags || "").split(/\s+/);
+        const show = (filter === "all") ? true : tags.includes(filter);
+        card.style.display = show ? "" : "none";
+      });
+    }
 
-      btns.forEach(b => b.addEventListener("click", () => apply(b.dataset.filter)));
+    btns.forEach(b => b.addEventListener("click", () => apply(b.dataset.filter)));
 
-      // 目的別ショートカット：クリックでフィルタ適用
-      quick.forEach(a => a.addEventListener("click", () => {
-        const f = a.dataset.filter;
-        if (f) apply(f);
-      }));
+    quick.forEach(a => a.addEventListener("click", () => {
+      const f = a.dataset.filter;
+      if (f) apply(f);
+    }));
 
-      apply("all");
-    })();
-  </script>
+    apply("all");
 
-  <script>
+    // ✅ 診断から呼べるように公開
+    window.NINES = window.NINES || {};
+    window.NINES.applySupportFilter = apply;
+  })();
+</script>
+
+
+<script>
 (function(){
   const steps = document.querySelectorAll(".diag-step");
   const resultBox = document.querySelector(".diag-result");
@@ -413,22 +417,52 @@
   });
 
   function showResult(){
-    let message = "設備導入や基盤整備を中心に、利用できる支援がある可能性があります。";
-    if (answers.includes("finance")) {
-      message = "資金面を支える支援（無利子貸付・補助制度）が候補になりそうです。";
-    }
-    if (answers.includes("land")) {
-      message = "耕作放棄地の再生・活用に関する支援が検討できます。";
-    }
-    if (answers.includes("skill")) {
-      message = "資格取得を支援する制度が活用できそうです。";
+    // ① 優先順位（複数選択の可能性を想定して最後に一致したものを採用でもOK）
+    let key = "invest";
+    if (answers.includes("finance")) key = "finance";
+    if (answers.includes("land")) key = "land";
+    if (answers.includes("skill")) key = "skill";
+
+    // ② メッセージ
+    const messageMap = {
+      invest: "設備導入や基盤整備を中心に、利用できる支援がある可能性があります。",
+      finance: "資金面を支える支援（無利子貸付・補助制度）が候補になりそうです。",
+      land: "耕作放棄地の再生・活用に関する支援が検討できます。",
+      skill: "資格取得を支援する制度が活用できそうです。"
+    };
+
+    resultText.textContent = messageMap[key] || messageMap.invest;
+    resultBox.style.display = "block";
+
+    // ③ フィルター適用 → 一覧へスクロール → 対象カードをハイライト
+    if (window.NINES && typeof window.NINES.applySupportFilter === "function") {
+      window.NINES.applySupportFilter(key);
     }
 
-    resultText.textContent = message;
-    resultBox.style.display = "block";
+    // 一覧セクションへ移動
+    const list = document.getElementById("list");
+    if (list) {
+      list.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    // 少し待ってからカードにフォーカス（表示更新があるため）
+    setTimeout(() => {
+      // ハイライトを一旦解除
+      document.querySelectorAll(".menu-card.is-highlight").forEach(el => el.classList.remove("is-highlight"));
+
+      const target = document.getElementById("card-" + key);
+      if (target) {
+        target.classList.add("is-highlight");
+        target.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        // 2秒後にハイライト解除（好み）
+        setTimeout(() => target.classList.remove("is-highlight"), 2200);
+      }
+    }, 350);
   }
 })();
 </script>
+
 
 </body>
 </html>
