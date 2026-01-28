@@ -13,10 +13,12 @@
 }
 
 .page-agri-support .hero-text{
-  background: rgba(0,0,0,0.38);
-  border: 1px solid rgba(255,255,255,0.16);
-  border-radius: 14px;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.22);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
+
 
 /* 目的別ショートカット */
 .quick-grid{
