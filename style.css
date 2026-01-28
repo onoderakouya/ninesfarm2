@@ -1819,3 +1819,32 @@ select:focus{
   border-color: #2c7a3f;
 }
 
+
+/* =========================
+   トップ：簡易診断への導線
+========================= */
+
+.top-diagnosis-cta{
+  margin: 28px auto 0;
+  max-width: 640px;
+  padding: 22px 20px 24px;
+  text-align: center;
+
+  background: #f3f8f4;
+  border-radius: 18px;
+  border: 1px solid rgba(44,122,63,0.18);
+}
+
+.top-diagnosis-lead{
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.top-diagnosis-note{
+  margin: 8px 0 0;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+
