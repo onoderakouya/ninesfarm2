@@ -943,18 +943,27 @@
   })();
 </script>
 
-  <script>
+<script>
   (function () {
     const params = new URLSearchParams(window.location.search);
-    const subject = params.get("subject");
-    if (subject === "price") {
-      const select = document.getElementById("subject");
-      if (select) {
-        select.value = "野菜価格安定補償制度について";
-      }
+    const subjectParam = params.get("subject");
+
+    if (!subjectParam) return;
+
+    const select = document.getElementById("subject");
+    if (!select) return;
+
+    const map = {
+      "price": "野菜価格安定補償制度について",
+      "agri-support": "農業支援事業について"
+    };
+
+    if (map[subjectParam]) {
+      select.value = map[subjectParam];
     }
   })();
 </script>
+
 
   
 </body>
