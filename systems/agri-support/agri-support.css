@@ -266,12 +266,11 @@
 ========================= */
 
 .support-pdf-box{
-  margin-top: 28px;
+  max-width: 1080px;   /* 共通containerと同じ */
+  margin: 28px auto 0; /* 中央寄せ */
   padding: 22px 22px 24px;
-  border-radius: 18px;
-  background: linear-gradient(180deg, #f3f8f4, #ffffff);
-  border: 1px solid rgba(44,122,63,0.18);
 }
+
 
 .support-pdf-inner{
   display: grid;
