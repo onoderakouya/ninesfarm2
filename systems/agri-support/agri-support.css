@@ -314,3 +314,25 @@
   }
 }
 
+/* =========================
+   農業支援事業：ヒーロー動画調整
+========================= */
+
+.page-agri-support .hero{
+  min-height: 60vh;
+}
+
+.page-agri-support .hero-text{
+  max-width: 720px;
+}
+
+/* スマホ最適化 */
+@media (max-width: 768px){
+  .page-agri-support .hero{
+    min-height: 52vh;
+  }
+
+  .page-agri-support .hero-text{
+    padding: 1rem 1.1rem;
+  }
+}
