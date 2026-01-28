@@ -467,3 +467,12 @@
   }
 }
 
+.page-agri-support .hero-video-overlay{
+  background: rgba(0,0,0,0.06);
+}
+
+.page-agri-support .hero-text{
+  text-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+
