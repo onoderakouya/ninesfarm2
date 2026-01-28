@@ -249,3 +249,13 @@
   color: #333;
 }
 
+/* =========================
+   診断 → 対象カードへ誘導（ハイライト）
+========================= */
+.menu-card.is-highlight{
+  outline: 3px solid rgba(44,122,63,0.35);
+  box-shadow: 0 16px 36px rgba(44,122,63,0.18);
+  transform: translateY(-2px);
+  transition: outline .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
