@@ -57,6 +57,58 @@
       </div>
     </section>
 
+  <section class="section section-diagnosis" id="diagnosis">
+  <div class="container">
+    <h2>30秒で分かる｜支援事業 簡易診断</h2>
+    <p class="support-lead">当てはまるものを選ぶだけで、利用できそうな支援の方向性が分かります。</p>
+
+    <div class="diagnosis-box">
+      <!-- Q1 -->
+      <div class="diag-step is-active" data-step="1">
+        <p class="diag-q">Q1. 今いちばん近い状況は？</p>
+        <div class="diag-choices">
+          <button type="button" data-value="invest">設備・基盤を整えたい</button>
+          <button type="button" data-value="finance">資金面に不安がある</button>
+          <button type="button" data-value="land">耕作放棄地を活用したい</button>
+          <button type="button" data-value="skill">資格・スキルを取りたい</button>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="diag-step" data-step="2">
+        <p class="diag-q">Q2. あなたの立場は？</p>
+        <div class="diag-choices">
+          <button type="button" data-value="individual">個人農家</button>
+          <button type="button" data-value="group">団体・法人</button>
+          <button type="button" data-value="new">これから始めたい</button>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="diag-step" data-step="3">
+        <p class="diag-q">Q3. まず知りたいのは？</p>
+        <div class="diag-choices">
+          <button type="button" data-value="available">使える支援があるか</button>
+          <button type="button" data-value="amount">どれくらい補助されるか</button>
+          <button type="button" data-value="process">申請の流れ</button>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div class="diag-result">
+        <p class="diag-result-title">診断結果</p>
+        <p class="diag-result-text" id="diagResultText"></p>
+
+        <a class="btn btn-primary"
+           href="/?subject=agri-support#contact">
+           あなたに合う支援を相談する
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
     <!-- 目的別ショートカット -->
     <section class="section section-support" id="quick">
       <div class="container">
