@@ -259,3 +259,58 @@
   transition: outline .2s ease, box-shadow .2s ease, transform .2s ease;
 }
 
+
+/* =========================
+   農業支援事業 PDF導線
+========================= */
+
+.support-pdf-box{
+  margin-top: 28px;
+  padding: 22px 22px 24px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #f3f8f4, #ffffff);
+  border: 1px solid rgba(44,122,63,0.18);
+}
+
+.support-pdf-inner{
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.support-pdf-text h3{
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  color: #2c7a3f;
+}
+
+.support-pdf-text p{
+  margin: 0;
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.7;
+}
+
+.support-pdf-cta{
+  text-align: center;
+}
+
+.support-pdf-cta .btn{
+  width: 100%;
+}
+
+.pdf-note{
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px){
+  .support-pdf-inner{
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
