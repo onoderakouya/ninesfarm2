@@ -1942,4 +1942,13 @@ select:focus{
   .top-slider-btn{ display:none; } /* スマホは誤タップ防止で非表示（必要なら消してOK） */
 }
 
+/* スライダーは横ジェスチャー優先 */
+.top-slider{
+  touch-action: pan-y;
+}
+
+.top-slider:active{
+  cursor: grabbing;
+}
+
 
