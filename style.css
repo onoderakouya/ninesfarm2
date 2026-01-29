@@ -2056,3 +2056,6 @@ select:focus{
   max-width: 760px;  /* お好み。PCで上品に締まる */
 }
 
+.section-top-slider .top-slider { touch-action: pan-y; }
+
+
