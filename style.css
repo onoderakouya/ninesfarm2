@@ -2064,3 +2064,95 @@ select:focus{
 }
 
 
+/* =========================
+   トップ告知スライダー：目立たせる（上品版）
+========================= */
+.section-top-slider{
+  padding-top: 34px;
+  padding-bottom: 34px; /* 周囲とのメリハリ */
+}
+
+/* 外枠カードを“主役”に */
+.section-top-slider .top-slider{
+  position: relative;
+  background: linear-gradient(135deg, rgba(44,122,63,0.10), rgba(255,255,255,0.55));
+  border: 1px solid rgba(44,122,63,0.18);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+}
+
+/* ほんのり光が差す感じ（高級感） */
+.section-top-slider .top-slider::after{
+  content:"";
+  position:absolute;
+  inset: 0;
+  pointer-events:none;
+  background:
+    radial-gradient(900px 220px at 18% 0%,
+      rgba(255,255,255,0.55) 0%,
+      rgba(255,255,255,0.00) 60%);
+}
+
+/* NEWSバッジ */
+.section-top-slider .top-slider::before{
+  content:"お知らせ";
+  position:absolute;
+  left: 18px;
+  top: 14px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #2c7a3f;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(44,122,63,0.18);
+}
+
+/* 本文の視認性UP */
+.section-top-slider .top-slide-title{
+  letter-spacing: 0.02em;
+}
+.section-top-slider .top-slide-text{
+  color: #333;
+}
+
+/* ボタンを少しだけ主役に */
+.section-top-slider .top-slide .btn{
+  box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+}
+.section-top-slider .top-slide .btn:hover{
+  box-shadow: 0 14px 28px rgba(0,0,0,0.14);
+}
+
+/* ドットを目立たせる（控えめに） */
+.section-top-slider .top-slider-dots .dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.14);
+  background: rgba(255,255,255,0.6);
+}
+.section-top-slider .top-slider-dots .dot.is-active{
+  background: #2c7a3f;
+  border-color: rgba(44,122,63,0.35);
+}
+
+/* スマホはバッジ位置を少し調整 */
+@media (max-width: 768px){
+  .section-top-slider .top-slider::before{
+    left: 14px;
+    top: 12px;
+  }
+}
+
+.section-top-slider .top-slide-kicker{
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: #2c7a3f;
+  background: rgba(44,122,63,0.10);
+}
+
+
