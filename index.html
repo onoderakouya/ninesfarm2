@@ -1012,6 +1012,44 @@
   })();
 </script>
 
+<script>
+(function(){
+  const root = document.getElementById("topSlider");
+  if(!root) return;
+
+  const track = root.querySelector(".top-slider-track");
+  const slides = Array.from(root.querySelectorAll(".top-slide"));
+  const prev = root.querySelector(".top-slider-btn.prev");
+  const next = root.querySelector(".top-slider-btn.next");
+  const dots = Array.from(root.querySelectorAll(".top-slider-dots .dot"));
+
+  let i = 0;
+  const max = slides.length;
+
+  function render(){
+    track.style.transform = `translateX(${-100 * i}%)`;
+    dots.forEach((d, idx) => d.classList.toggle("is-active", idx === i));
+  }
+
+  function go(n){
+    i = (n + max) % max;
+    render();
+  }
+
+  prev?.addEventListener("click", () => go(i - 1));
+  next?.addEventListener("click", () => go(i + 1));
+  dots.forEach((d, idx) => d.addEventListener("click", () => go(idx)));
+
+  // auto
+  let timer = setInterval(() => go(i + 1), 6000);
+
+  // hoverで止める（PC）
+  root.addEventListener("mouseenter", () => clearInterval(timer));
+  root.addEventListener("mouseleave", () => timer = setInterval(() => go(i + 1), 6000));
+
+  render();
+})();
+</script>
 
   
 </body>
