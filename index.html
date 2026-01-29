@@ -1015,7 +1015,7 @@
 <script>
 (function(){
   const root = document.getElementById("topSlider");
-  if(!root) return;
+  if (!root) return;
 
   const track  = root.querySelector(".top-slider-track");
   const slides = Array.from(root.querySelectorAll(".top-slide"));
@@ -1023,55 +1023,61 @@
   const next   = root.querySelector(".top-slider-btn.next");
   const dots   = Array.from(root.querySelectorAll(".top-slider-dots .dot"));
 
-  let i = 0;
   const max = slides.length;
+  if (!track || max === 0) return;
 
-  // ✅ 「1枚ぶんの移動量」は“スライド自身の幅”で取る（paddingの影響を受けない）
+  let i = 0;
+
+  // 1枚ぶんの実幅（padding等の影響を受けにくい）を px で取得
   const getSlideW = () => {
     const s = slides[0];
     const w = s ? s.getBoundingClientRect().width : 0;
     return w || root.clientWidth || 1;
   };
 
-function render(){
-  track.style.transform = `translateX(${-100 * i}%)`;
+  function render(){
+    const w = getSlideW();
+    track.style.transform = `translate3d(${-w * i}px, 0, 0)`;
 
-  // ★追加：アクティブスライドのクラス切替（フェードの核）
-  slides.forEach((s, idx) => s.classList.toggle("is-active", idx === i));
-
-  dots.forEach((d, idx) => d.classList.toggle("is-active", idx === i));
-}
-
+    // フェード等のために active を付け替え
+    slides.forEach((s, idx) => s.classList.toggle("is-active", idx === i));
+    dots.forEach((d, idx) => d.classList.toggle("is-active", idx === i));
+  }
 
   function go(n){
     i = (n + max) % max;
     render();
   }
 
+  // 初期：トラックのアニメ設定（CSS側で指定しているなら不要だが保険）
+  track.style.transition = "transform .55s cubic-bezier(.22, .61, .36, 1)";
+
+  // controls
   prev?.addEventListener("click", () => go(i - 1));
   next?.addEventListener("click", () => go(i + 1));
   dots.forEach((d, idx) => d.addEventListener("click", () => go(idx)));
 
-  // ✅ リサイズ・回転でもズレない
+  // リサイズ・回転でズレない
   window.addEventListener("resize", render);
 
   render();
 
   /* =========================
-     SWIPE（スマホの左右スワイプ対応）
+     SWIPE（スマホ左右スワイプ）
   ========================= */
   let startX = 0, startY = 0, deltaX = 0, deltaY = 0, isSwiping = false;
 
-  track.style.transition = "transform .45s ease";
-
   root.addEventListener("touchstart", (e) => {
     if (!e.touches || e.touches.length !== 1) return;
+
     const t = e.touches[0];
     startX = t.clientX;
     startY = t.clientY;
     deltaX = 0;
     deltaY = 0;
     isSwiping = false;
+
+    // 触った瞬間は追従したいので transition を切る
     track.style.transition = "none";
   }, { passive: true });
 
@@ -1082,6 +1088,7 @@ function render(){
     deltaX = t.clientX - startX;
     deltaY = t.clientY - startY;
 
+    // 横スワイプ意図か判定（縦スクロールを邪魔しない）
     if (!isSwiping) {
       if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 8) {
         isSwiping = true;
@@ -1095,25 +1102,36 @@ function render(){
     track.style.transform = `translate3d(${offsetPx}px, 0, 0)`;
   }, { passive: true });
 
-  root.addEventListener("touchend", () => {
-    track.style.transition = "transform .45s ease";
-    if (!isSwiping) return;
+  function finishSwipe(){
+    // transition を戻す
+    track.style.transition = "transform .55s cubic-bezier(.22, .61, .36, 1)";
 
-    const threshold = 50;
-    if (deltaX <= -threshold) go(i + 1);
-    else if (deltaX >= threshold) go(i - 1);
-    else render();
-  });
+    if (isSwiping) {
+      const threshold = 50;
+      if (deltaX <= -threshold) go(i + 1);
+      else if (deltaX >= threshold) go(i - 1);
+      else render();
+    }
 
-  /* auto */
-  let timer = setInterval(() => go(i + 1), 6000);
-  root.addEventListener("mouseenter", () => clearInterval(timer));
-  root.addEventListener("mouseleave", () => timer = setInterval(() => go(i + 1), 6000));
-
-  root.addEventListener("touchend", () => {
+    // 自動切替をリセット（気が利く）
     clearInterval(timer);
     timer = setInterval(() => go(i + 1), 6000);
-  }, { passive: true });
+  }
+
+  root.addEventListener("touchend", finishSwipe, { passive: true });
+  root.addEventListener("touchcancel", finishSwipe, { passive: true });
+
+  /* =========================
+     auto（自動切替）
+  ========================= */
+  let timer = setInterval(() => go(i + 1), 6000);
+
+  // PC hoverで止める
+  root.addEventListener("mouseenter", () => clearInterval(timer));
+  root.addEventListener("mouseleave", () => {
+    clearInterval(timer);
+    timer = setInterval(() => go(i + 1), 6000);
+  });
 
 })();
 </script>
