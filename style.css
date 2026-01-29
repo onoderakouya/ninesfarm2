@@ -1848,63 +1848,172 @@ select:focus{
 }
 
 /* =========================
-   トップ告知スライダー：余白と距離感を整える（プロ版）
+   トップ告知スライダー（完成版）
+   - 余白は上品
+   - 矢印は中央左右に固定
+   - 見た目は丸ボタンで今風
 ========================= */
 
-/* 外枠（カード） */
 .section-top-slider .top-slider{
   position: relative;
   background: #f3f5f4;
   border-radius: 16px;
-  padding: 18px 72px;   /* ← 矢印の逃げ + “カードの余白” を増やす */
-  overflow: hidden;     /* ← 隣のスライドがチラ見えしない */
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+
+  /* 矢印がかぶらないための左右余白 */
+  padding: 22px 84px 44px;  /* 下はドット分も確保 */
 }
 
-/* トラック：スライドは横並び、隙間は作らない */
+/* トラック：横並び */
 .section-top-slider .top-slider-track{
   display: flex;
-  gap: 0;               /* ← ここが重要：隣が近く見える原因を潰す */
+  gap: 0;
   will-change: transform;
+  transition: transform .45s ease;
 }
 
-/* スライド：必ず100%幅を占有 */
+/* スライド：必ず100%幅 */
 .section-top-slider .top-slide{
   flex: 0 0 100%;
   min-width: 100%;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;            /* ← 本文とボタンの“上品な距離” */
-  padding: 6px 8px;     /* ← 端の詰まり感を消す（微調整） */
+  gap: 22px;
+
+  padding: 4px 0; /* ここは控えめでOK */
 }
 
-/* 本文側：横幅が取りすぎないように */
+/* 本文側 */
 .section-top-slider .top-slide-body{
   flex: 1 1 auto;
-  min-width: 0;         /* ← 長文でもレイアウト崩れにくくするおまじない */
+  min-width: 0;
 }
 
-/* ボタン側：本文と近づきすぎない */
+/* タイトル等が長い時の保険（必要なら） */
+.section-top-slider .top-slide-title,
+.section-top-slider .top-slide-text{
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ボタン側 */
 .section-top-slider .top-slide .btn{
   flex: 0 0 auto;
-  margin-left: 8px;     /* ← gap＋保険 */
+  margin-left: 0;
 }
 
-/* スマホ：縦並びでも気持ちいい余白 */
+/* =========================
+   矢印（前へ／次へ）
+========================= */
+.section-top-slider .top-slider-btn{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+
+  display: grid;
+  place-items: center;
+
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(0,0,0,0.10);
+  color: #2c7a3f;
+
+  cursor: pointer;
+  user-select: none;
+
+  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+  transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+
+/* 左右位置 */
+.section-top-slider .top-slider-btn.prev{ left: 18px; }
+.section-top-slider .top-slider-btn.next{ right: 18px; }
+
+.section-top-slider .top-slider-btn:hover{
+  background: #fff;
+  transform: translateY(-50%) scale(1.03);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.16);
+}
+
+.section-top-slider .top-slider-btn:active{
+  transform: translateY(-50%) scale(0.98);
+}
+
+.section-top-slider .top-slider-btn:focus-visible{
+  outline: 3px solid rgba(44,122,63,0.35);
+  outline-offset: 2px;
+}
+
+/* 文字（‹ ›）を少しだけ上品に */
+.section-top-slider .top-slider-btn{
+  font-size: 26px;
+  line-height: 1;
+}
+
+/* =========================
+   ドット（下中央）
+========================= */
+.section-top-slider .top-slider-dots{
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 5;
+}
+
+.section-top-slider .top-slider-dots .dot{
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.18);
+  background: rgba(255,255,255,0.7);
+  cursor: pointer;
+  padding: 0;
+}
+
+.section-top-slider .top-slider-dots .dot.is-active{
+  background: #2c7a3f;
+  border-color: #2c7a3f;
+}
+
+/* =========================
+   スマホ
+========================= */
 @media (max-width: 768px){
   .section-top-slider .top-slider{
-    padding: 16px 56px; /* 矢印を残しつつ余白確保 */
+    padding: 16px 58px 44px; /* 矢印スペースは残す */
   }
 
   .section-top-slider .top-slide{
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
-    padding: 8px 4px;
   }
 
   .section-top-slider .top-slide .btn{
-    margin-left: 0;
-    width: 100%;        /* 押しやすい */
+    width: 100%;
   }
+
+  .section-top-slider .top-slider-btn{
+    width: 38px;
+    height: 38px;
+    font-size: 24px;
+  }
+
+  .section-top-slider .top-slider-btn.prev{ left: 12px; }
+  .section-top-slider .top-slider-btn.next{ right: 12px; }
+}
+
+/* スワイプ操作の安定化（入れておくと吉） */
+.section-top-slider .top-slider{
+  touch-action: pan-y;
 }
