@@ -1859,9 +1859,10 @@ select:focus{
   position: relative;
   background: #f3f5f4;
   border-radius: 16px;
-  padding: 18px;
+  padding: 18px 56px; /* ← 左右を広げる（重要） */
   overflow: hidden;
 }
+
 
 .top-slider-track{
   display: flex;
@@ -1940,4 +1941,5 @@ select:focus{
   .top-slider{ padding: 16px; }
   .top-slider-btn{ display:none; } /* スマホは誤タップ防止で非表示（必要なら消してOK） */
 }
+
 
