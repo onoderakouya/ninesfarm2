@@ -1026,8 +1026,12 @@
   let i = 0;
   const max = slides.length;
 
+  // ✅ 「1枚ぶんの移動量」は常に “表示領域(root)の幅” にする
+  const getW = () => root.clientWidth || 1;
+
   function render(){
-    track.style.transform = `translateX(${-100 * i}%)`;
+    const w = getW();
+    track.style.transform = `translate3d(${-w * i}px, 0, 0)`;
     dots.forEach((d, idx) => d.classList.toggle("is-active", idx === i));
   }
 
@@ -1040,6 +1044,9 @@
   next?.addEventListener("click", () => go(i + 1));
   dots.forEach((d, idx) => d.addEventListener("click", () => go(idx)));
 
+  // ✅ 画面幅変更（スマホ回転・リサイズ）でもズレないように
+  window.addEventListener("resize", render);
+
   render();
 
   /* =========================
@@ -1051,7 +1058,6 @@
   let deltaY = 0;
   let isSwiping = false;
 
-  // 指の追従を軽く見せたいなら使う（任意）
   track.style.transition = "transform .45s ease";
 
   root.addEventListener("touchstart", (e) => {
@@ -1064,7 +1070,6 @@
     deltaY = 0;
     isSwiping = false;
 
-    // 触った瞬間は追従したいのでtransitionを切る（任意）
     track.style.transition = "none";
   }, { passive: true });
 
@@ -1075,51 +1080,35 @@
     deltaX = t.clientX - startX;
     deltaY = t.clientY - startY;
 
-    // 縦スクロール意図か？横スワイプ意図か？判定
-    // 横が優勢なら「スワイプ操作」とみなす
     if (!isSwiping) {
       if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 8) {
         isSwiping = true;
       } else {
-        return; // まだ縦スクロールかもしれないので何もしない
+        return;
       }
     }
 
-    // 横スワイプ中は少しだけ追従（気持ちいい）
-    const width = root.clientWidth || 1;
-    const offset = (-100 * i) + (deltaX / width) * 100;
-    track.style.transform = `translateX(${offset}%)`;
-
-    // ここで preventDefault したいが、passive:trueだとできない。
-    // なのでCSSで touch-action を指定する（下に追記あり）。
+    const w = getW();
+    const offsetPx = (-w * i) + deltaX;  // ✅ pxで追従
+    track.style.transform = `translate3d(${offsetPx}px, 0, 0)`;
   }, { passive: true });
 
   root.addEventListener("touchend", () => {
-    // transition戻す
     track.style.transition = "transform .45s ease";
-
     if (!isSwiping) return;
 
-    const threshold = 50; // これ以上動いたらスライド（好みで調整）
-    if (deltaX <= -threshold) {
-      go(i + 1); // 左へスワイプ → 次へ
-    } else if (deltaX >= threshold) {
-      go(i - 1); // 右へスワイプ → 前へ
-    } else {
-      render(); // 足りなければ元に戻す
-    }
+    const threshold = 50;
+    if (deltaX <= -threshold) go(i + 1);
+    else if (deltaX >= threshold) go(i - 1);
+    else render();
   });
 
-  /* =========================
-     auto（既存の自動切替があるならここ）
-  ========================= */
+  /* auto */
   let timer = setInterval(() => go(i + 1), 6000);
 
-  // PC hoverで止める（既にあるならそのままでOK）
   root.addEventListener("mouseenter", () => clearInterval(timer));
   root.addEventListener("mouseleave", () => timer = setInterval(() => go(i + 1), 6000));
 
-  // スワイプしたら一旦自動をリセット（気が利く）
   root.addEventListener("touchend", () => {
     clearInterval(timer);
     timer = setInterval(() => go(i + 1), 6000);
@@ -1127,6 +1116,7 @@
 
 })();
 </script>
+
 
 
   
