@@ -1033,11 +1033,15 @@
     return w || root.clientWidth || 1;
   };
 
-  function render(){
-    const w = getSlideW();
-    track.style.transform = `translate3d(${-w * i}px, 0, 0)`;
-    dots.forEach((d, idx) => d.classList.toggle("is-active", idx === i));
-  }
+function render(){
+  track.style.transform = `translateX(${-100 * i}%)`;
+
+  // ★追加：アクティブスライドのクラス切替（フェードの核）
+  slides.forEach((s, idx) => s.classList.toggle("is-active", idx === i));
+
+  dots.forEach((d, idx) => d.classList.toggle("is-active", idx === i));
+}
+
 
   function go(n){
     i = (n + max) % max;
