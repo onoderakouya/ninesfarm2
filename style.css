@@ -2017,3 +2017,42 @@ select:focus{
 .section-top-slider .top-slider{
   touch-action: pan-y;
 }
+
+/* =========================
+   「次スライド文字が侵入」完全防止パッチ
+========================= */
+
+/* ビューポートを確実に固定（中身がはみ出さない） */
+.section-top-slider .top-slider{
+  overflow: hidden !important;
+}
+
+/* トラックが余計に広がったり縮んだりしない */
+.section-top-slider .top-slider-track{
+  width: 100%;
+  align-items: stretch;
+}
+
+/* スライドは“必ず”窓いっぱい。縮まない・はみ出さない */
+.section-top-slider .top-slide{
+  flex: 0 0 100% !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* 右端で文字が見切れない/押し合わないための余白（上品に） */
+.section-top-slider .top-slide{
+  padding-right: 18px;  /* ← ボタン右側の空気 */
+}
+
+/* ボタンと右端の間隔を固定 */
+.section-top-slider .top-slide .btn{
+  margin-right: 6px;
+}
+
+/* もしテキストが長くても右に突き抜けないように */
+.section-top-slider .top-slide-body{
+  max-width: 760px;  /* お好み。PCで上品に締まる */
+}
+
