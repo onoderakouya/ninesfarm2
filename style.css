@@ -2059,3 +2059,8 @@ select:focus{
 .section-top-slider .top-slider { touch-action: pan-y; }
 
 
+.section-top-slider .top-slider-track{
+  transition: transform .45s ease;
+}
+
+
