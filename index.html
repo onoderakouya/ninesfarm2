@@ -1040,16 +1040,94 @@
   next?.addEventListener("click", () => go(i + 1));
   dots.forEach((d, idx) => d.addEventListener("click", () => go(idx)));
 
-  // auto
+  render();
+
+  /* =========================
+     SWIPE（スマホの左右スワイプ対応）
+  ========================= */
+  let startX = 0;
+  let startY = 0;
+  let deltaX = 0;
+  let deltaY = 0;
+  let isSwiping = false;
+
+  // 指の追従を軽く見せたいなら使う（任意）
+  track.style.transition = "transform .45s ease";
+
+  root.addEventListener("touchstart", (e) => {
+    if (!e.touches || e.touches.length !== 1) return;
+
+    const t = e.touches[0];
+    startX = t.clientX;
+    startY = t.clientY;
+    deltaX = 0;
+    deltaY = 0;
+    isSwiping = false;
+
+    // 触った瞬間は追従したいのでtransitionを切る（任意）
+    track.style.transition = "none";
+  }, { passive: true });
+
+  root.addEventListener("touchmove", (e) => {
+    if (!e.touches || e.touches.length !== 1) return;
+
+    const t = e.touches[0];
+    deltaX = t.clientX - startX;
+    deltaY = t.clientY - startY;
+
+    // 縦スクロール意図か？横スワイプ意図か？判定
+    // 横が優勢なら「スワイプ操作」とみなす
+    if (!isSwiping) {
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 8) {
+        isSwiping = true;
+      } else {
+        return; // まだ縦スクロールかもしれないので何もしない
+      }
+    }
+
+    // 横スワイプ中は少しだけ追従（気持ちいい）
+    const width = root.clientWidth || 1;
+    const offset = (-100 * i) + (deltaX / width) * 100;
+    track.style.transform = `translateX(${offset}%)`;
+
+    // ここで preventDefault したいが、passive:trueだとできない。
+    // なのでCSSで touch-action を指定する（下に追記あり）。
+  }, { passive: true });
+
+  root.addEventListener("touchend", () => {
+    // transition戻す
+    track.style.transition = "transform .45s ease";
+
+    if (!isSwiping) return;
+
+    const threshold = 50; // これ以上動いたらスライド（好みで調整）
+    if (deltaX <= -threshold) {
+      go(i + 1); // 左へスワイプ → 次へ
+    } else if (deltaX >= threshold) {
+      go(i - 1); // 右へスワイプ → 前へ
+    } else {
+      render(); // 足りなければ元に戻す
+    }
+  });
+
+  /* =========================
+     auto（既存の自動切替があるならここ）
+  ========================= */
   let timer = setInterval(() => go(i + 1), 6000);
 
-  // hoverで止める（PC）
+  // PC hoverで止める（既にあるならそのままでOK）
   root.addEventListener("mouseenter", () => clearInterval(timer));
   root.addEventListener("mouseleave", () => timer = setInterval(() => go(i + 1), 6000));
 
-  render();
+  // スワイプしたら一旦自動をリセット（気が利く）
+  root.addEventListener("touchend", () => {
+    clearInterval(timer);
+    timer = setInterval(() => go(i + 1), 6000);
+  }, { passive: true });
+
 })();
 </script>
+
 
   
 </body>
