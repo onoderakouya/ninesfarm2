@@ -2155,4 +2155,46 @@ select:focus{
   background: rgba(44,122,63,0.10);
 }
 
+/* =========================
+   トップ告知スライダー：上品な切替（フェード＋軽い浮き）
+   ※ JSはそのまま。CSSだけで効かせる版
+========================= */
+
+/* トラックの動きは少し柔らかく（既にJSで transition を入れていても上書きOK） */
+.section-top-slider .top-slider-track{
+  transition: transform .55s cubic-bezier(.22, .61, .36, 1);
+}
+
+/* スライド：デフォは少し薄く＆ほんの少し下げる */
+.section-top-slider .top-slide{
+  opacity: 0.35;
+  filter: blur(0.2px);
+  transform: translateY(6px);
+  transition: opacity .45s ease, transform .45s ease, filter .45s ease;
+}
+
+/* アクティブだけクッキリ */
+.section-top-slider .top-slide.is-active{
+  opacity: 1;
+  filter: none;
+  transform: translateY(0);
+}
+
+/* 文字だけさらに“ふわっ”をかけたい場合（任意） */
+.section-top-slider .top-slide.is-active .top-slide-title,
+.section-top-slider .top-slide.is-active .top-slide-text{
+  transition: transform .45s ease, opacity .45s ease;
+}
+
+.section-top-slider .top-slide .top-slide-title,
+.section-top-slider .top-slide .top-slide-text{
+  transform: translateY(4px);
+  opacity: 0.9;
+}
+
+.section-top-slider .top-slide.is-active .top-slide-title,
+.section-top-slider .top-slide.is-active .top-slide-text{
+  transform: translateY(0);
+  opacity: 1;
+}
 
