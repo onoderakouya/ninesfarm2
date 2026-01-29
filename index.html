@@ -1017,20 +1017,24 @@
   const root = document.getElementById("topSlider");
   if(!root) return;
 
-  const track = root.querySelector(".top-slider-track");
+  const track  = root.querySelector(".top-slider-track");
   const slides = Array.from(root.querySelectorAll(".top-slide"));
-  const prev = root.querySelector(".top-slider-btn.prev");
-  const next = root.querySelector(".top-slider-btn.next");
-  const dots = Array.from(root.querySelectorAll(".top-slider-dots .dot"));
+  const prev   = root.querySelector(".top-slider-btn.prev");
+  const next   = root.querySelector(".top-slider-btn.next");
+  const dots   = Array.from(root.querySelectorAll(".top-slider-dots .dot"));
 
   let i = 0;
   const max = slides.length;
 
-  // ✅ 「1枚ぶんの移動量」は常に “表示領域(root)の幅” にする
-  const getW = () => root.clientWidth || 1;
+  // ✅ 「1枚ぶんの移動量」は“スライド自身の幅”で取る（paddingの影響を受けない）
+  const getSlideW = () => {
+    const s = slides[0];
+    const w = s ? s.getBoundingClientRect().width : 0;
+    return w || root.clientWidth || 1;
+  };
 
   function render(){
-    const w = getW();
+    const w = getSlideW();
     track.style.transform = `translate3d(${-w * i}px, 0, 0)`;
     dots.forEach((d, idx) => d.classList.toggle("is-active", idx === i));
   }
@@ -1044,7 +1048,7 @@
   next?.addEventListener("click", () => go(i + 1));
   dots.forEach((d, idx) => d.addEventListener("click", () => go(idx)));
 
-  // ✅ 画面幅変更（スマホ回転・リサイズ）でもズレないように
+  // ✅ リサイズ・回転でもズレない
   window.addEventListener("resize", render);
 
   render();
@@ -1052,24 +1056,18 @@
   /* =========================
      SWIPE（スマホの左右スワイプ対応）
   ========================= */
-  let startX = 0;
-  let startY = 0;
-  let deltaX = 0;
-  let deltaY = 0;
-  let isSwiping = false;
+  let startX = 0, startY = 0, deltaX = 0, deltaY = 0, isSwiping = false;
 
   track.style.transition = "transform .45s ease";
 
   root.addEventListener("touchstart", (e) => {
     if (!e.touches || e.touches.length !== 1) return;
-
     const t = e.touches[0];
     startX = t.clientX;
     startY = t.clientY;
     deltaX = 0;
     deltaY = 0;
     isSwiping = false;
-
     track.style.transition = "none";
   }, { passive: true });
 
@@ -1088,8 +1086,8 @@
       }
     }
 
-    const w = getW();
-    const offsetPx = (-w * i) + deltaX;  // ✅ pxで追従
+    const w = getSlideW();
+    const offsetPx = (-w * i) + deltaX;
     track.style.transform = `translate3d(${offsetPx}px, 0, 0)`;
   }, { passive: true });
 
@@ -1105,7 +1103,6 @@
 
   /* auto */
   let timer = setInterval(() => go(i + 1), 6000);
-
   root.addEventListener("mouseenter", () => clearInterval(timer));
   root.addEventListener("mouseleave", () => timer = setInterval(() => go(i + 1), 6000));
 
@@ -1116,6 +1113,7 @@
 
 })();
 </script>
+
 
 
 
