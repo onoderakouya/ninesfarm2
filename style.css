@@ -1848,136 +1848,63 @@ select:focus{
 }
 
 /* =========================
-   トップ告知スライダー
+   トップ告知スライダー：余白と距離感を整える（プロ版）
 ========================= */
-.section-top-slider{
-  padding: 32px 0;
-  background: #ffffff;
-}
 
-.top-slider{
+/* 外枠（カード） */
+.section-top-slider .top-slider{
   position: relative;
   background: #f3f5f4;
   border-radius: 16px;
-  padding: 18px 56px; /* ← 左右を広げる（重要） */
-  overflow: hidden;
+  padding: 18px 72px;   /* ← 矢印の逃げ + “カードの余白” を増やす */
+  overflow: hidden;     /* ← 隣のスライドがチラ見えしない */
 }
 
-
-.top-slider-track{
+/* トラック：スライドは横並び、隙間は作らない */
+.section-top-slider .top-slider-track{
   display: flex;
-  transition: transform .45s ease;
+  gap: 0;               /* ← ここが重要：隣が近く見える原因を潰す */
   will-change: transform;
 }
 
-.top-slide{
+/* スライド：必ず100%幅を占有 */
+.section-top-slider .top-slide{
+  flex: 0 0 100%;
   min-width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
-  flex-wrap: wrap;
+  gap: 20px;            /* ← 本文とボタンの“上品な距離” */
+  padding: 6px 8px;     /* ← 端の詰まり感を消す（微調整） */
 }
 
-.top-slide-body{
-  min-width: 240px;
+/* 本文側：横幅が取りすぎないように */
+.section-top-slider .top-slide-body{
+  flex: 1 1 auto;
+  min-width: 0;         /* ← 長文でもレイアウト崩れにくくするおまじない */
 }
 
-.top-slide-kicker{
-  margin: 0;
-  font-weight: 700;
-  color: #2c7a3f;
+/* ボタン側：本文と近づきすぎない */
+.section-top-slider .top-slide .btn{
+  flex: 0 0 auto;
+  margin-left: 8px;     /* ← gap＋保険 */
 }
 
-.top-slide-title{
-  margin: 4px 0 0.4em;
-}
-
-.top-slide-text{
-  margin: 0;
-  color: #444;
-}
-
-/* buttons */
-.top-slider-btn{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  border: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.9);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-  cursor: pointer;
-  font-size: 20px;
-  line-height: 1;
-}
-
-.top-slider-btn.prev{ left: 10px; }
-.top-slider-btn.next{ right: 10px; }
-
-.top-slider-dots{
-  margin-top: 12px;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-
-.top-slider-dots .dot{
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 0;
-  background: rgba(0,0,0,0.18);
-  cursor: pointer;
-}
-
-.top-slider-dots .dot.is-active{
-  background: rgba(44,122,63,0.9);
-}
-
+/* スマホ：縦並びでも気持ちいい余白 */
 @media (max-width: 768px){
-  .top-slider{ padding: 16px; }
-  .top-slider-btn{ display:none; } /* スマホは誤タップ防止で非表示（必要なら消してOK） */
+  .section-top-slider .top-slider{
+    padding: 16px 56px; /* 矢印を残しつつ余白確保 */
+  }
+
+  .section-top-slider .top-slide{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 8px 4px;
+  }
+
+  .section-top-slider .top-slide .btn{
+    margin-left: 0;
+    width: 100%;        /* 押しやすい */
+  }
 }
-
-/* スライダーは横ジェスチャー優先 */
-.top-slider{
-  touch-action: pan-y;
-}
-
-.top-slider:active{
-  cursor: grabbing;
-}
-
-/* スライド内のコンテンツに余白を確保 */
-.top-slide{
-}
-
-/* 右側のCTAボタンに「呼吸」を与える */
-.top-slide .btn{
-  margin-left: auto;            /* テキストと距離 */
-}
-
-/* スライドは必ず画面幅100%を占有させる */
-.top-slider-track{
-  display: flex;
-  gap: 0;                       /* ←ここ大事。余計な隙間を消す */
-}
-
-.top-slide{
-  flex: 0 0 100%;
-  min-width: 100%;
-}
-
-/* カードの外にはみ出した隣スライドは見せない */
-.top-slider{
-  overflow: hidden;
-}
-
-.top-slider{
-  padding: 18px 64px; /* すでに56pxなら 64px に。矢印領域＋余白が整う */
-}
-
-
