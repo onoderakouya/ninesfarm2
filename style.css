@@ -1875,7 +1875,7 @@ select:focus{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
+  gap: 18px;
   flex-wrap: wrap;
 }
 
@@ -1949,6 +1949,35 @@ select:focus{
 
 .top-slider:active{
   cursor: grabbing;
+}
+
+/* スライド内のコンテンツに余白を確保 */
+.top-slide{
+}
+
+/* 右側のCTAボタンに「呼吸」を与える */
+.top-slide .btn{
+  margin-left: auto;            /* テキストと距離 */
+}
+
+/* スライドは必ず画面幅100%を占有させる */
+.top-slider-track{
+  display: flex;
+  gap: 0;                       /* ←ここ大事。余計な隙間を消す */
+}
+
+.top-slide{
+  flex: 0 0 100%;
+  min-width: 100%;
+}
+
+/* カードの外にはみ出した隣スライドは見せない */
+.top-slider{
+  overflow: hidden;
+}
+
+.top-slider{
+  padding: 18px 64px; /* すでに56pxなら 64px に。矢印領域＋余白が整う */
 }
 
 
