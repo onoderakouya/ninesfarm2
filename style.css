@@ -2275,5 +2275,50 @@ select:focus{
 }
 
 
+/* フッターのナビ：小さい画面は2列にして崩れ防止 */
+@media (max-width: 480px){
+  .footer-nav ul{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 14px;
+  }
+
+  .footer-nav li{
+    margin: 0;
+  }
+
+  .footer-nav a{
+    display: block;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    text-align: center;
+    white-space: nowrap; /* 1文字ずつ改行を防ぐ */
+    text-decoration: none;
+  }
+
+  .footer-nav a:hover{
+    background: rgba(255,255,255,0.10);
+  }
+}
+
+/* フッターのナビ：極小画面は縦並び */
+@media (max-width: 360px){
+  .footer-nav ul{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-nav a{
+    display: block;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    text-align: left;
+    white-space: normal; /* 縦並びなら折り返しOK */
+    text-decoration: none;
+  }
+}
 
 
