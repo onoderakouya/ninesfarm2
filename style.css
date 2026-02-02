@@ -2268,5 +2268,12 @@ select:focus{
   }
 }
 
+@media (max-width: 380px){
+  .kunohe-advantage-hero-overlay{
+    align-items: center;  /* flex-end → center に戻す */
+  }
+}
+
+
 
 
