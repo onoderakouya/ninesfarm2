@@ -2221,3 +2221,52 @@ select:focus{
   }
 }
 
+/* =========================
+   九戸村ヒーロー：小さいスマホで文字が切れる問題を解決
+========================= */
+
+/* まず768px以下は全体的に少しだけ締める（安全） */
+@media (max-width: 768px){
+  .kunohe-advantage-hero img{
+    height: clamp(320px, 62vw, 420px); /* 260pxだと足りない端末が出る */
+  }
+
+  .kunohe-advantage-hero-inner{
+    padding: 18px 16px;   /* 20/18でもOK。まずは詰める */
+  }
+
+  .kunohe-advantage-hero-inner h2{
+    font-size: clamp(1.15rem, 4.8vw, 1.45rem);
+    line-height: 1.35;
+  }
+
+  .kunohe-advantage-lead{
+    font-size: clamp(0.82rem, 3.6vw, 0.95rem);
+    line-height: 1.7;
+  }
+}
+
+/* さらに小さい端末（iPhone SE/小型Android）向け：決定版 */
+@media (max-width: 380px){
+  .kunohe-advantage-hero img{
+    height: 420px; /* 小画面では割り切って高さを確保（切れ防止） */
+  }
+
+  .kunohe-advantage-hero-inner{
+    padding: 14px 12px;
+    max-height: calc(100% - 18px); /* 画像内に収める */
+    overflow: auto;                /* 万一溢れたらスクロールできる保険 */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .kunohe-advantage-hero-inner h2{
+    font-size: 1.12rem;
+  }
+
+  .kunohe-advantage-lead{
+    font-size: 0.80rem;
+  }
+}
+
+
+
