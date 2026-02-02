@@ -2198,3 +2198,26 @@ select:focus{
   opacity: 1;
 }
 
+@media (max-width: 768px) {
+
+  /* ヘッダー内の横並びメニューは隠す（←崩れの原因を消す） */
+  .site-nav {
+    display: none;
+  }
+
+  /* ロゴを中央寄せして見栄えを安定 */
+  .logo {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* CTAボタンを1行でドン、と */
+  .header-cta {
+    width: 100%;
+  }
+  .header-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
