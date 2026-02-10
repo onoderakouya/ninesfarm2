@@ -2348,4 +2348,21 @@ select:focus{
   }
 }
 
+@media (max-width: 800px){
+  .leader-photo-wrap{
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background: #fff; /* 余白が出る場合の保険 */
+  }
+
+  .leader-img-sp{
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* ←全部見せる */
+  }
+}
+
+
+
 
