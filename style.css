@@ -2363,6 +2363,11 @@ select:focus{
   }
 }
 
+/* スマホではPC画像を確実に消して、横長だけ出す */
+@media (max-width: 800px){
+  .leader-photo-wrap .leader-img-pc{ display: none !important; }
+  .leader-photo-wrap .leader-img-sp{ display: block !important; }
+}
 
 
 
