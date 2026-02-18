@@ -2370,4 +2370,85 @@ select:focus{
 }
 
 
+/* =========================
+   農機具買取ブロック
+========================= */
+
+.section-kaitori{
+  background: #ffffff;
+}
+
+.kaitori-box{
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 36px 32px;
+  border-radius: 20px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(44,122,63,0.08),
+    rgba(255,255,255,1)
+  );
+
+  border: 1px solid rgba(44,122,63,0.18);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+
+  text-align: center;
+}
+
+.kaitori-label{
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #2c7a3f;
+  background: rgba(44,122,63,0.12);
+  margin-bottom: 12px;
+}
+
+.kaitori-box h2{
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+}
+
+.kaitori-lead{
+  max-width: 640px;
+  margin: 0 auto 20px;
+  color: #444;
+}
+
+.kaitori-cta{
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.kaitori-note{
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* スマホ */
+@media (max-width: 768px){
+  .kaitori-box{
+    padding: 24px 18px;
+  }
+
+  .kaitori-box h2{
+    font-size: 1.3rem;
+  }
+
+  .kaitori-cta{
+    flex-direction: column;
+  }
+
+  .kaitori-cta .btn{
+    width: 100%;
+  }
+}
+
+
 
