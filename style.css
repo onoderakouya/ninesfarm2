@@ -2612,4 +2612,178 @@ select:focus{
   text-align: center;
 }
 
+/* =========================
+   古物商（買取）ページ：洗練デザイン
+   使い方：<body class="page-kaitori">
+========================= */
+
+.page-kaitori .section{
+  padding: 56px 0;
+}
+
+/* 見出し */
+.page-kaitori h1{
+  font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+  letter-spacing: 0.02em;
+  margin: 0 0 10px;
+}
+.page-kaitori .lead{
+  color: #444;
+  font-size: 1rem;
+  max-width: 780px;
+}
+
+/* ヒーロー（上部） */
+.page-kaitori .kaitori-hero{
+  background: linear-gradient(135deg, rgba(44,122,63,0.10), rgba(255,255,255,0.85));
+  border: 1px solid rgba(44,122,63,0.18);
+  border-radius: 18px;
+  padding: 26px;
+  box-shadow: 0 18px 44px rgba(0,0,0,0.08);
+  overflow: hidden;
+  position: relative;
+}
+.page-kaitori .kaitori-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background: radial-gradient(900px 260px at 10% 0%,
+    rgba(255,255,255,0.55) 0%,
+    rgba(255,255,255,0.00) 60%);
+}
+
+/* “要点3つ” */
+.page-kaitori .kaitori-points{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.page-kaitori .kaitori-point{
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  padding: 14px 14px 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+.page-kaitori .kaitori-point b{
+  display:block;
+  color:#2c7a3f;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+.page-kaitori .kaitori-point p{
+  margin: 0;
+  color:#444;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* セクションカード */
+.page-kaitori .kaitori-card{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+}
+
+/* 2カラム（買取できる/できない） */
+.page-kaitori .kaitori-two-col{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.page-kaitori .kaitori-box{
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: #f9faf9;
+}
+.page-kaitori .kaitori-box h3{
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+}
+.page-kaitori .kaitori-ok{ border-color: rgba(44,122,63,0.22); background: rgba(44,122,63,0.06); }
+.page-kaitori .kaitori-ng{ border-color: rgba(210,34,34,0.22); background: rgba(210,34,34,0.05); }
+.page-kaitori .kaitori-box ul{
+  margin: 0;
+  padding-left: 1.1em;
+}
+.page-kaitori .kaitori-box li{
+  margin: 0 0 6px;
+  color:#333;
+}
+
+/* 流れ（ステップ） */
+.page-kaitori .kaitori-steps{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+.page-kaitori .kaitori-step{
+  background:#fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+}
+.page-kaitori .kaitori-step .num{
+  display:inline-grid;
+  place-items:center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(44,122,63,0.12);
+  color:#2c7a3f;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.page-kaitori .kaitori-step h4{
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+.page-kaitori .kaitori-step p{
+  margin: 0;
+  color:#444;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* CTA（最後の問い合わせ枠） */
+.page-kaitori .kaitori-cta{
+  margin-top: 18px;
+  background: #f3f8f4;
+  border: 1px solid rgba(44,122,63,0.18);
+  border-radius: 18px;
+  padding: 18px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.page-kaitori .kaitori-cta p{
+  margin:0;
+  color:#333;
+}
+.page-kaitori .kaitori-cta .btn{
+  box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+}
+
+/* スマホ */
+@media (max-width: 768px){
+  .page-kaitori .kaitori-points,
+  .page-kaitori .kaitori-steps{
+    grid-template-columns: 1fr;
+  }
+  .page-kaitori .kaitori-two-col{
+    grid-template-columns: 1fr;
+  }
+  .page-kaitori .kaitori-hero{
+    padding: 18px;
+  }
+}
 
