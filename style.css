@@ -2564,5 +2564,52 @@ select:focus{
   }
 }
 
+/* =========================
+   農機具買取ページ
+========================= */
+
+.kaitori-hero{
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(44,122,63,0.12), #ffffff);
+  border: 1px solid rgba(44,122,63,0.18);
+  margin-bottom: 40px;
+}
+
+.kaitori-hero h1{
+  margin-bottom: 12px;
+}
+
+.kaitori-block{
+  margin-bottom: 40px;
+}
+
+.kaitori-block h2{
+  margin-bottom: 14px;
+  color: #2c7a3f;
+}
+
+.kaitori-block ul,
+.kaitori-block ol{
+  padding-left: 1.2em;
+}
+
+.kaitori-contact{
+  background: #f3f8f4;
+  padding: 24px;
+  border-radius: 16px;
+}
+
+.kaitori-buttons{
+  margin-top: 16px;
+}
+
+.kaitori-license{
+  margin-top: 60px;
+  font-size: 0.85rem;
+  color: #666;
+  text-align: center;
+}
 
 
