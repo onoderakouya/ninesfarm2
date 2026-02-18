@@ -2144,3 +2144,287 @@ select:focus {
   .page-kaitori .kaitori-two-col { grid-template-columns: 1fr; }
   .page-kaitori .kaitori-hero { padding: 18px; }
 }
+
+
+
+/* =========================
+   kaitori：洗練セット（ページ限定）
+========================= */
+.page-kaitori{
+  --k-bg: #f5f7f6;
+  --k-card: rgba(255,255,255,0.88);
+  --k-border: rgba(0,0,0,0.07);
+  --k-shadow: 0 18px 44px rgba(0,0,0,0.08);
+  --k-soft: 0 10px 28px rgba(0,0,0,0.06);
+  background: var(--k-bg);
+}
+
+.page-kaitori .container{ max-width: 1040px; }
+
+/* 見出しに少しだけ“気品” */
+.page-kaitori h2{
+  font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+  letter-spacing: 0.02em;
+}
+
+/* セクション共通（カードの余白感） */
+.page-kaitori .ksection{
+  margin: 28px 0;
+  padding: 22px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.55);
+  border: 1px solid var(--k-border);
+  box-shadow: var(--k-soft);
+}
+
+/* ---------- ヒーロー ---------- */
+.page-kaitori .kaitori-hero--rich{
+  position: relative;
+  padding: 28px;
+  border-radius: 22px;
+  background:
+    radial-gradient(900px 260px at 12% 0%,
+      rgba(255,255,255,0.7) 0%,
+      rgba(255,255,255,0) 60%),
+    linear-gradient(135deg, rgba(44,122,63,0.12), rgba(255,255,255,0.92));
+  border: 1px solid rgba(44,122,63,0.18);
+  box-shadow: var(--k-shadow);
+  overflow: hidden;
+}
+
+.page-kaitori .kaitori-hero__badge{
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--green);
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(44,122,63,0.18);
+  margin-bottom: 12px;
+}
+
+.page-kaitori .kaitori-hero .lead{
+  max-width: 760px;
+  color: #333;
+  margin: 0 0 14px;
+}
+
+.page-kaitori .kaitori-hero__cards{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.page-kaitori .kcard{
+  background: var(--k-card);
+  border: 1px solid var(--k-border);
+  border-radius: 16px;
+  padding: 14px 14px 16px;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.06);
+  backdrop-filter: blur(6px);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.page-kaitori .kcard b{
+  display:block;
+  color: var(--green);
+  margin-bottom: 6px;
+}
+.page-kaitori .kcard p{ margin: 0; color:#444; font-size: 0.9rem; line-height: 1.65; }
+
+.page-kaitori .kcard:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.10);
+}
+
+.page-kaitori .kaitori-hero__cta{
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ---------- 2カラムカード ---------- */
+.page-kaitori .kgrid-2{
+  margin-top: 14px;
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.page-kaitori .kpanel{
+  background: rgba(255,255,255,0.92);
+  border: 1px solid var(--k-border);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.06);
+}
+
+.page-kaitori .kpanel--muted{
+  background: rgba(255,255,255,0.75);
+}
+
+.page-kaitori .kpanel h3{
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+}
+
+.page-kaitori .kpanel ul{
+  margin: 0;
+  padding-left: 1.2em;
+}
+.page-kaitori .kpanel li{ margin: 0 0 6px; }
+
+.page-kaitori .knote{
+  margin: 10px 0 0;
+  color: #666;
+  font-size: 0.88rem;
+}
+
+/* ---------- フロー（タイムライン風） ---------- */
+.page-kaitori .kflow{
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.page-kaitori .kflow__step{
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 12px;
+  align-items: start;
+
+  background: rgba(255,255,255,0.92);
+  border: 1px solid var(--k-border);
+  border-radius: 18px;
+  padding: 14px 14px 16px;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 左の縦ライン（それっぽさが爆上がり） */
+.page-kaitori .kflow__step::before{
+  content:"";
+  position:absolute;
+  left: 22px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(44,122,63,0.15);
+}
+
+.page-kaitori .kflow__num{
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  color: var(--green);
+  background: rgba(44,122,63,0.12);
+  border: 1px solid rgba(44,122,63,0.18);
+  z-index: 1;
+}
+
+.page-kaitori .kflow__body h3{
+  margin: 2px 0 6px;
+  font-size: 1.05rem;
+}
+.page-kaitori .kflow__body p{ margin: 0; color:#444; }
+
+/* ---------- FAQ（アコーディオン） ---------- */
+.page-kaitori .kfaq{
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.page-kaitori .kfaq__item{
+  background: rgba(255,255,255,0.92);
+  border: 1px solid var(--k-border);
+  border-radius: 16px;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+
+.page-kaitori .kfaq__item summary{
+  cursor: pointer;
+  padding: 14px 16px;
+  font-weight: 800;
+  color: #2b2b2b;
+  list-style: none;
+  position: relative;
+}
+.page-kaitori .kfaq__item summary::-webkit-details-marker{ display:none; }
+
+/* 右端に＋/− */
+.page-kaitori .kfaq__item summary::after{
+  content:"+";
+  position:absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  color: var(--green);
+}
+.page-kaitori .kfaq__item[open] summary::after{ content:"–"; }
+
+.page-kaitori .kfaq__body{
+  padding: 0 16px 14px;
+  color: #444;
+  line-height: 1.7;
+}
+
+/* ---------- 最終CTA ---------- */
+.page-kaitori .kfinal{
+  margin: 28px 0 0;
+}
+.page-kaitori .kfinal__inner{
+  padding: 24px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(44,122,63,0.12), rgba(255,255,255,0.9));
+  border: 1px solid rgba(44,122,63,0.18);
+  box-shadow: var(--k-shadow);
+  text-align: center;
+}
+.page-kaitori .kfinal__inner p{ margin: 8px 0 0; color:#333; }
+.page-kaitori .kfinal__cta{
+  margin-top: 14px;
+  display:flex;
+  justify-content:center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ---------- ふわっと出る（あなたのrevealを強化するだけ） ---------- */
+.page-kaitori .reveal{
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.page-kaitori .reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce){
+  .page-kaitori .reveal{ transition:none; transform:none; opacity:1; }
+  .page-kaitori .kcard{ transition:none; }
+}
+
+/* ---------- レスポンシブ ---------- */
+@media (max-width: 900px){
+  .page-kaitori .kaitori-hero__cards{ grid-template-columns: 1fr; }
+  .page-kaitori .kgrid-2{ grid-template-columns: 1fr; }
+}
+@media (max-width: 768px){
+  .page-kaitori .kaitori-hero--rich{ padding: 18px; }
+  .page-kaitori .kaitori-hero__cta .btn{ width: 100%; justify-content:center; }
+}
+
