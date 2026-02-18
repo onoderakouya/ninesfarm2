@@ -2927,4 +2927,15 @@ select:focus{
 }
 
 
+/* 農機具買取：右側のアイコン面を消す */
+.kaitori-cta-side{
+  display: none !important;
+}
+
+/* 2カラム → 1カラムにする */
+.kaitori-cta{
+  grid-template-columns: 1fr !important;
+}
+
+
 
