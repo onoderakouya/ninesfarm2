@@ -44,6 +44,12 @@
           </div>
         </section>
 
+                <section class="event-block harvest-poster-block">
+          <div class="harvest-poster">
+            <img src="assets/image/harvest-event-poster.png" alt="秋の収穫体験イベント ポスター（準備中）">
+          </div>
+        </section>
+
         <section class="event-block">
           <h2>体験内容</h2>
           <ul class="event-list-check">
@@ -85,12 +91,7 @@
           </ul>
         </section>
 
-        <section class="event-block harvest-poster-block">
-          <h2>イベントポスター</h2>
-          <div class="harvest-poster">
-            <img src="assets/images/harvest-event-poster.png" alt="秋の収穫体験イベント ポスター（準備中）">
-          </div>
-        </section>
+
 
         <section class="event-final-cta">
           <h2>お申し込み方法</h2>
