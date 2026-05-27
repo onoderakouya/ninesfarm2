@@ -20,7 +20,7 @@
             <h1>ナインズファーム 秋の収穫体験イベント</h1>
             <p class="event-lead event-catch">土にふれて、秋を見つけよう。</p>
             <div class="event-cta">
-              <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScWbY0bozN8AsvnEGvfx2lm1bmDW9wBBi81aVvp4X-I4oKGEg/viewform?usp=dialog">申し込む（Googleフォーム）</a>
+              <a class="btn btn-primary" href="#">申し込む（Googleフォーム）</a>
               <a class="btn btn-outline" href="#event-detail">イベント詳細を見る</a>
             </div>
           </div>
@@ -88,15 +88,16 @@
         <section class="event-block harvest-poster-block">
           <h2>イベントポスター</h2>
           <div class="harvest-poster">
-            <img src="assets/image/harvest-event-poster.png" alt="秋の収穫体験イベント ポスター">
+            <img src="assets/images/harvest-event-poster.png" alt="秋の収穫体験イベント ポスター（準備中）">
           </div>
         </section>
 
         <section class="event-final-cta">
           <h2>お申し込み方法</h2>
           <p>Googleフォームからお申し込みください。</p>
+          <p>フォーム入力が難しい場合は、お電話でのお申し込みも可能です。<br><a href="tel:0195422111">0195-42-2111</a></p>
           <p class="event-note">※申込締切：開催日の1週間前まで<br>※定員に達し次第、受付終了</p>
-          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScWbY0bozN8AsvnEGvfx2lm1bmDW9wBBi81aVvp4X-I4oKGEg/viewform?usp=dialog">申し込む（Googleフォーム）</a>
+          <a class="btn btn-primary" href="#">申し込む（Googleフォーム）</a>
         </section>
       </div>
     </section>
