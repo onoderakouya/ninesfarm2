@@ -88,7 +88,7 @@
         <section class="event-block harvest-poster-block">
           <h2>イベントポスター</h2>
           <div class="harvest-poster">
-            <img src="../assets/images/harvest-event-poster.png" alt="秋の収穫体験イベント ポスター">
+            <img src="assets/image/harvest-event-poster.png" alt="秋の収穫体験イベント ポスター">
           </div>
         </section>
 
