@@ -5,6 +5,7 @@
   --green: #2c7a3f;
   --green-dark: #256535;
   --bg-gray: #f3f5f4;
+  --recruitment-notice-height: 52px;
 }
 
 /* ==============================
@@ -105,11 +106,65 @@ h1, h2, h3, h4 {
 }
 
 /* ==============================
+   研修生募集のお知らせ
+============================== */
+.recruitment-notice {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: var(--recruitment-notice-height);
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background: #a62920;
+  border-bottom: 3px solid #741a14;
+  z-index: 1100;
+}
+
+.recruitment-notice-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.recruitment-notice-label {
+  flex-shrink: 0;
+  padding: 2px 9px;
+  color: #8b2018;
+  background: #fff;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.recruitment-notice p {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.recruitment-notice strong {
+  font-size: 1.08rem;
+  letter-spacing: 0.03em;
+}
+
+.recruitment-notice p span {
+  font-size: 0.84rem;
+}
+
+/* ==============================
    ヘッダー（上部固定）
 ============================== */
 .site-header {
   position: fixed;
-  top: 0;
+  top: var(--recruitment-notice-height);
   left: 0;
   right: 0;
   height: 64px;
@@ -163,13 +218,13 @@ h1, h2, h3, h4 {
 .layout-with-sidebar {
   display: flex;
   align-items: flex-start;
-  padding-top: 64px; /* 上部ヘッダー分の余白 */
+  padding-top: calc(64px + var(--recruitment-notice-height)); /* お知らせ＋上部ヘッダー分の余白 */
 }
 
 /* サイドナビ */
 .side-nav {
   position: fixed;
-  top: 64px;
+  top: calc(64px + var(--recruitment-notice-height));
   left: 0;
   bottom: 0;
   width: 260px;
@@ -1911,6 +1966,28 @@ select:focus {
 
 /* スマホ：サイドバーを上部に畳む */
 @media (max-width: 768px) {
+  .recruitment-notice {
+    position: static;
+  }
+
+  .recruitment-notice-inner,
+  .recruitment-notice p {
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    text-align: center;
+  }
+
+  .recruitment-notice-inner {
+    gap: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .recruitment-notice strong {
+    font-size: 1rem;
+  }
+
   .site-header {
     position: static;
     height: auto;
