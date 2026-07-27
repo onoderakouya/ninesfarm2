@@ -143,9 +143,6 @@ h1, h2, h3, h4 {
 }
 
 .recruitment-notice p {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
   margin: 0;
   line-height: 1.4;
 }
@@ -153,10 +150,6 @@ h1, h2, h3, h4 {
 .recruitment-notice strong {
   font-size: 1.08rem;
   letter-spacing: 0.03em;
-}
-
-.recruitment-notice p span {
-  font-size: 0.84rem;
 }
 
 /* ==============================
@@ -1970,11 +1963,9 @@ select:focus {
     position: static;
   }
 
-  .recruitment-notice-inner,
-  .recruitment-notice p {
+  .recruitment-notice-inner {
     flex-direction: column;
     align-items: center;
-    gap: 3px;
     text-align: center;
   }
 
