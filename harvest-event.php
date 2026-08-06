@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>ナインズファーム 秋の収穫体験イベント | 岩手・九戸村</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="小学3〜6年生と保護者向け。ナインズファームの秋の収穫体験イベントのご案内。ピーマン・トマト・さつまいも収穫を体験できます。" />
+  <meta name="description" content="小学1〜6年生と保護者向け。10月4日（日）開催、ナインズファームの秋の収穫体験イベントのご案内。ピーマン・トマト・さつまいも収穫を体験できます。" />
   <link rel="stylesheet" href="style.css" />
   <link rel="canonical" href="https://ninesfarm.com/harvest-event.php" />
 </head>
@@ -16,7 +16,7 @@
 
         <div class="event-hero harvest-hero">
           <div class="event-hero-text">
-            <p class="event-badge">令和8年10月開催予定</p>
+            <p class="event-badge">令和8年10月4日（日）開催</p>
             <h1>ナインズファーム 秋の収穫体験イベント</h1>
             <p class="event-lead event-catch">土にふれて、秋を見つけよう。</p>
             <div class="event-cta">
@@ -30,16 +30,16 @@
           <h2>イベント概要</h2>
           <div class="event-detail">
             <dl>
-              <dt>対象</dt>
-              <dd>小学3年生〜6年生とその保護者</dd>
               <dt>日時</dt>
-              <dd>令和8年10月○日（日）10:00〜12:00（受付開始9:45）</dd>
+              <dd>令和8年10月4日（日）9:30〜11:30（受付開始9:15）</dd>
               <dt>会場</dt>
-              <dd>ナインズファーム研修圃場（九戸村内）</dd>
-              <dt>定員</dt>
-              <dd>15組程度</dd>
+              <dd>一般社団法人ナインズファーム研修圃場（九戸村内）</dd>
+              <dt>集合場所</dt>
+              <dd>九戸村役場駐車場<br>集合時間などの詳細は、申込後にご案内します。</dd>
+              <dt>対象・定員</dt>
+              <dd>小学1年生〜6年生とその保護者<br>未就学児の兄弟姉妹も保護者同伴で参加できます。<br>15組（先着順）</dd>
               <dt>参加費</dt>
-              <dd>○○円（保険料・お土産代込み）</dd>
+              <dd>小学生1人500円<br>保護者・未就学児は無料（保険料・お土産代を含みます）</dd>
             </dl>
           </div>
         </section>
