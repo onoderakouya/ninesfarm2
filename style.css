@@ -465,12 +465,20 @@ h1, h2, h3, h4 {
 }
 
 .dairy-training-photo {
+  --photo-feather: clamp(10px, 2.5vw, 28px);
+
   display: block;
   width: 100%;
-  max-width: 680px;
-  height: auto;
+  height: clamp(185px, 31vw, 330px);
+  object-fit: cover;
+  object-position: center 70%;
   margin: 0 0 1.25rem;
-  border-radius: 12px;
+  border-radius: 18px;
+  opacity: 0.9;
+  mask-image:
+    linear-gradient(to right, transparent, #000 var(--photo-feather), #000 calc(100% - var(--photo-feather)), transparent),
+    linear-gradient(to bottom, transparent, #000 var(--photo-feather), #000 calc(100% - var(--photo-feather)), transparent);
+  mask-composite: intersect;
 }
 
 /* ==============================
