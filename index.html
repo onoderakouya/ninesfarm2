@@ -123,7 +123,7 @@
             <p class="hero-label">岩手・九戸村で学ぶ、実践型農業研修</p>
             <h1>「就農のリアル」を、いっしょに畑で学びませんか。</h1>
             <p>
-              ナインズファームの研修は、教室ではなく畑が教科書。<br>
+              ナインズファームの野菜栽培研修は、教室ではなく畑が教科書。<br>
               実際の営農現場に入り、作付け計画から販売まで<br>
               独立就農に必要な流れを、2年間かけて身につけていきます。
             </p>
@@ -131,6 +131,7 @@
               <a href="#contact" class="btn btn-primary">資料請求・見学を申し込む</a>
               <a href="#program" class="btn btn-secondary">研修の1日を見る</a>
             </div>
+            <a href="#dairy-training" class="hero-dairy-link">酪農研修も受け付けています</a>
           </div>
         </div>
       </section>
@@ -566,7 +567,7 @@
       <!-- 研修内容（1日の流れ＋年間） -->
       <section id="program" class="section section-program">
         <div class="container reveal">
-          <h2>研修内容・スケジュール</h2>
+          <h2>野菜栽培研修の内容・スケジュール</h2>
           <p>
             季節に合わせて作業内容が大きく変わるのも農業の特徴です。
             ここでは、1日の流れと年間のざっくりしたイメージをご紹介します。
@@ -622,6 +623,18 @@
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="dairy-training" class="section section-dairy-training" aria-labelledby="dairy-training-heading">
+        <div class="container">
+          <h2 id="dairy-training-heading">酪農研修のご案内</h2>
+          <p>ナインズファームでは、野菜栽培の研修に加え、酪農研修も受け付けています。</p>
+          <p>
+            乳牛の飼育や酪農の仕事に関心のある方は、まずはお問い合わせください。
+            研修内容や受け入れ時期などの詳細をご案内します。
+          </p>
+          <a href="#contact" id="dairy-training-contact" class="btn btn-primary" data-contact-subject="酪農研修について">酪農研修について相談する</a>
         </div>
       </section>
 
@@ -946,6 +959,7 @@
   <option value="野菜価格安定補償制度について">野菜価格安定補償制度について</option>
   <option value="農業支援事業について">農業支援事業について</option>
   <option value="農業研修について">農業研修について</option>
+  <option value="酪農研修について">酪農研修について</option>
   <option value="就農・独立について">就農・独立について</option>
   <option value="その他">その他</option>
 </select>
@@ -1145,13 +1159,18 @@
 
 <script>
   (function () {
+    const select = document.getElementById("subject");
+    if (!select) return;
+
+    const dairyContactLink = document.getElementById("dairy-training-contact");
+    dairyContactLink?.addEventListener("click", () => {
+      select.value = dairyContactLink.dataset.contactSubject;
+    });
+
     const params = new URLSearchParams(window.location.search);
     const subjectParam = params.get("subject");
 
     if (!subjectParam) return;
-
-    const select = document.getElementById("subject");
-    if (!select) return;
 
     const map = {
       "price": "野菜価格安定補償制度について",

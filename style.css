@@ -367,6 +367,13 @@ h1, h2, h3, h4 {
   gap: 12px;
 }
 
+.hero-dairy-link {
+  display: inline-block;
+  margin-top: 16px;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 /* ==============================
    「選ばれる理由」
 ============================== */
@@ -447,6 +454,14 @@ h1, h2, h3, h4 {
   margin-top: 10px;
   font-size: 0.85rem;
   color: #666;
+}
+
+.section-dairy-training {
+  background: #eaf4eb;
+}
+
+.section-dairy-training p {
+  max-width: 42em;
 }
 
 /* ==============================
