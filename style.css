@@ -498,13 +498,42 @@ h1, h2, h3, h4 {
 
 .voice-avatar {
   display: grid;
-  place-items: center;
+  place-content: center;
+  justify-items: center;
+  gap: 2px;
   flex: 0 0 44px;
   height: 44px;
   border-radius: 50%;
   background: #eaf4eb;
   color: var(--green-dark);
-  font-size: 1.05rem;
+}
+
+.voice-avatar--blue {
+  background: #e4eef9;
+  color: #325c85;
+}
+
+.voice-avatar--amber {
+  background: #faeedc;
+  color: #855521;
+}
+
+.voice-avatar::before,
+.voice-avatar::after {
+  content: "";
+  background: currentColor;
+}
+
+.voice-avatar::before {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.voice-avatar::after {
+  width: 18px;
+  height: 9px;
+  border-radius: 9px 9px 3px 3px;
 }
 
 /* ==============================
