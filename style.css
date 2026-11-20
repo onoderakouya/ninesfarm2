@@ -487,23 +487,24 @@ h1, h2, h3, h4 {
   text-align: center;
 }
 
-.voice-photo {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto 0.6rem;
+.voice-person {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  gap: 10px;
+  margin-top: 0;
+  font-weight: 700;
 }
 
-.voice-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.voice-avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #eaf4eb;
+  color: var(--green-dark);
+  font-size: 1.05rem;
 }
 
 /* ==============================
